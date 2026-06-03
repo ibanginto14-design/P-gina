@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -93,13 +93,8 @@
     }
 
     @keyframes glowMove {
-      from {
-        transform: translate3d(0, 0, 0) scale(1);
-      }
-
-      to {
-        transform: translate3d(-40px, 46px, 0) scale(1.12);
-      }
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to { transform: translate3d(-40px, 46px, 0) scale(1.12); }
     }
 
     a {
@@ -107,9 +102,8 @@
       text-decoration: none;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
+    button {
+      font: inherit;
     }
 
     .container {
@@ -134,6 +128,7 @@
       gap: 10px;
       text-align: center;
       padding: 0 16px;
+      flex-wrap: wrap;
     }
 
     .top-banner a {
@@ -213,6 +208,7 @@
       font-weight: 800;
       font-size: 0.88rem;
       background: rgba(255, 255, 255, 0.04);
+      cursor: pointer;
     }
 
     .btn {
@@ -310,17 +306,9 @@
     }
 
     @keyframes pulseDot {
-      0% {
-        box-shadow: 0 0 0 0 rgba(20, 241, 149, 0.7);
-      }
-
-      70% {
-        box-shadow: 0 0 0 12px rgba(20, 241, 149, 0);
-      }
-
-      100% {
-        box-shadow: 0 0 0 0 rgba(20, 241, 149, 0);
-      }
+      0% { box-shadow: 0 0 0 0 rgba(20, 241, 149, 0.7); }
+      70% { box-shadow: 0 0 0 12px rgba(20, 241, 149, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(20, 241, 149, 0); }
     }
 
     .hero h1 {
@@ -458,13 +446,8 @@
     }
 
     @keyframes floatCard {
-      0%, 100% {
-        transform: translateY(0) rotate(0deg);
-      }
-
-      50% {
-        transform: translateY(-16px) rotate(1deg);
-      }
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-16px) rotate(1deg); }
     }
 
     .center-node {
@@ -525,38 +508,14 @@
       font-weight: 800;
     }
 
-    .float-chip.one {
-      left: -24px;
-      top: 78px;
-      animation: smallFloat 5s ease-in-out infinite;
-    }
-
-    .float-chip.two {
-      right: -20px;
-      top: 190px;
-      animation: smallFloat 6s ease-in-out infinite reverse;
-    }
-
-    .float-chip.three {
-      left: 54px;
-      bottom: 84px;
-      animation: smallFloat 5.5s ease-in-out infinite;
-    }
-
-    .float-chip.four {
-      right: 42px;
-      bottom: 58px;
-      animation: smallFloat 6.4s ease-in-out infinite reverse;
-    }
+    .float-chip.one { left: -24px; top: 78px; animation: smallFloat 5s ease-in-out infinite; }
+    .float-chip.two { right: -20px; top: 190px; animation: smallFloat 6s ease-in-out infinite reverse; }
+    .float-chip.three { left: 54px; bottom: 84px; animation: smallFloat 5.5s ease-in-out infinite; }
+    .float-chip.four { right: 42px; bottom: 58px; animation: smallFloat 6.4s ease-in-out infinite reverse; }
 
     @keyframes smallFloat {
-      0%, 100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-13px);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-13px); }
     }
 
     .chain-node {
@@ -575,25 +534,10 @@
       box-shadow: 0 14px 45px rgba(0, 0, 0, 0.24);
     }
 
-    .chain-node.eth {
-      top: 62px;
-      right: 118px;
-    }
-
-    .chain-node.arb {
-      top: 275px;
-      left: 62px;
-    }
-
-    .chain-node.base {
-      bottom: 154px;
-      right: 98px;
-    }
-
-    .chain-node.poly {
-      top: 145px;
-      left: 112px;
-    }
+    .chain-node.eth { top: 62px; right: 118px; }
+    .chain-node.arb { top: 275px; left: 62px; }
+    .chain-node.base { bottom: 154px; right: 98px; }
+    .chain-node.poly { top: 145px; left: 112px; }
 
     section {
       position: relative;
@@ -660,9 +604,7 @@
     }
 
     @keyframes marquee {
-      to {
-        transform: translateX(-50%);
-      }
+      to { transform: translateX(-50%); }
     }
 
     .card {
@@ -802,7 +744,8 @@
       font-size: 0.94rem;
     }
 
-    .flow-icon {
+    .flow-icon,
+    .feature-icon {
       width: 56px;
       height: 56px;
       border-radius: 20px;
@@ -830,18 +773,22 @@
       font-weight: 900;
     }
 
-    .subgraph-grid {
+    .subgraph-grid,
+    .features-grid,
+    .audience-grid,
+    .glossary-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
     .subgraph-card {
-      min-height: 230px;
+      min-height: 315px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       cursor: pointer;
+      text-decoration: none;
     }
 
     .card-top {
@@ -849,6 +796,7 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 22px;
+      gap: 12px;
     }
 
     .chain-badge {
@@ -878,25 +826,63 @@
       font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
+      white-space: nowrap;
     }
 
-    .subgraph-card h3 {
-      font-size: 1.18rem;
-      margin-bottom: 10px;
-      letter-spacing: -0.035em;
+    .subgraph-card h3,
+    .feature-card h3,
+    .audience-card h3,
+    .glossary-card h3 {
+      font-size: 1.2rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 13px;
     }
 
-    .subgraph-card p {
+    .subgraph-card p,
+    .feature-card p,
+    .audience-card p,
+    .glossary-card p {
       color: var(--text-muted);
-      line-height: 1.6;
-      font-size: 0.94rem;
+      line-height: 1.68;
+      font-size: 0.95rem;
+    }
+
+    .query-preview {
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(2, 5, 18, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.11);
+    }
+
+    .query-preview span {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent-3);
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .query-preview code {
+      display: block;
+      color: #dce5ff;
+      font-size: 0.76rem;
+      line-height: 1.55;
+      white-space: normal;
+      word-break: break-word;
     }
 
     .open-note {
       margin-top: 16px;
-      color: #dce5ff;
-      font-size: 0.86rem;
+      color: #dce5ff !important;
+      font-size: 0.86rem !important;
       font-weight: 800;
+    }
+
+    .subgraph-card:hover .open-note {
+      color: white !important;
     }
 
     .tag-row {
@@ -916,13 +902,8 @@
       font-weight: 800;
     }
 
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .feature-card {
+    .feature-card,
+    .audience-card {
       min-height: 280px;
     }
 
@@ -933,45 +914,6 @@
       font-weight: 900;
       letter-spacing: -0.09em;
       margin-bottom: 22px;
-    }
-
-    .feature-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 18px;
-      display: grid;
-      place-items: center;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      margin-bottom: 24px;
-      font-size: 1.35rem;
-    }
-
-    .feature-card h3,
-    .audience-card h3,
-    .glossary-card h3 {
-      font-size: 1.28rem;
-      letter-spacing: -0.04em;
-      margin-bottom: 13px;
-    }
-
-    .feature-card p,
-    .audience-card p,
-    .glossary-card p {
-      color: var(--text-muted);
-      line-height: 1.68;
-      font-size: 0.95rem;
-    }
-
-    .audience-grid,
-    .glossary-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .audience-card {
-      min-height: 240px;
     }
 
     .risk-layout {
@@ -1007,25 +949,11 @@
       font-size: 0.93rem;
     }
 
-    .risk-critical {
-      color: #ff4d7d;
-    }
-
-    .risk-danger {
-      color: #fb7185;
-    }
-
-    .risk-warning {
-      color: #facc15;
-    }
-
-    .risk-caution {
-      color: #38bdf8;
-    }
-
-    .risk-safe {
-      color: #14f195;
-    }
+    .risk-critical { color: #ff4d7d; }
+    .risk-danger { color: #fb7185; }
+    .risk-warning { color: #facc15; }
+    .risk-caution { color: #38bdf8; }
+    .risk-safe { color: #14f195; }
 
     .risk-index-card {
       display: flex;
@@ -1236,18 +1164,14 @@
     }
 
     @media (max-width: 1050px) {
-      .nav-links {
-        display: none;
-      }
+      .nav-links { display: none; }
 
       .hero {
         grid-template-columns: 1fr;
         min-height: auto;
       }
 
-      .hero-art {
-        min-height: 500px;
-      }
+      .hero-art { min-height: 500px; }
 
       .subgraph-grid,
       .features-grid,
@@ -1258,9 +1182,7 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .flow-arrow {
-        display: none;
-      }
+      .flow-arrow { display: none; }
 
       .risk-layout,
       .api-card {
@@ -1273,48 +1195,31 @@
     }
 
     @media (max-width: 720px) {
-      .container {
-        width: min(100% - 28px, var(--container));
-      }
+      .container { width: min(100% - 28px, var(--container)); }
 
       .top-banner-inner {
         font-size: 0.78rem;
         padding: 8px 12px;
       }
 
-      .nav-inner {
-        height: 70px;
-      }
+      .nav-inner { height: 70px; }
 
-      .nav-actions .btn-secondary,
-      .lang-pill {
-        display: none;
-      }
+      .nav-actions .btn-secondary { display: none; }
 
-      .brand span:last-child {
-        display: none;
-      }
+      .brand span:last-child { display: none; }
 
       .hero {
         padding-top: 56px;
         gap: 36px;
       }
 
-      .hero h1 {
-        font-size: clamp(3rem, 16vw, 4.4rem);
-      }
+      .hero h1 { font-size: clamp(3rem, 16vw, 4.4rem); }
 
-      .hero-description {
-        font-size: 1rem;
-      }
+      .hero-description { font-size: 1rem; }
 
-      .mini-stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .mini-stats { grid-template-columns: repeat(2, 1fr); }
 
-      .hero-art {
-        min-height: 420px;
-      }
+      .hero-art { min-height: 420px; }
 
       .orbital-card {
         height: 420px;
@@ -1333,45 +1238,20 @@
         padding: 13px 14px;
       }
 
-      .float-chip strong {
-        font-size: 1.15rem;
-      }
+      .float-chip strong { font-size: 1.15rem; }
 
-      .float-chip.one {
-        left: 12px;
-        top: 34px;
-      }
+      .float-chip.one { left: 12px; top: 34px; }
+      .float-chip.two { right: 12px; top: 134px; }
+      .float-chip.three { left: 18px; bottom: 52px; }
+      .float-chip.four { right: 16px; bottom: 38px; }
 
-      .float-chip.two {
-        right: 12px;
-        top: 134px;
-      }
+      .chain-node { display: none; }
 
-      .float-chip.three {
-        left: 18px;
-        bottom: 52px;
-      }
+      section { padding: 68px 0; }
 
-      .float-chip.four {
-        right: 16px;
-        bottom: 38px;
-      }
+      .section-header { display: block; }
 
-      .chain-node {
-        display: none;
-      }
-
-      section {
-        padding: 68px 0;
-      }
-
-      .section-header {
-        display: block;
-      }
-
-      .section-description {
-        margin-top: 18px;
-      }
+      .section-description { margin-top: 18px; }
 
       .subgraph-grid,
       .features-grid,
@@ -1402,9 +1282,7 @@
         border-radius: 32px;
       }
 
-      .footer-inner {
-        flex-direction: column;
-      }
+      .footer-inner { flex-direction: column; }
     }
   </style>
 </head>
@@ -1412,10 +1290,18 @@
 <body>
   <div class="top-banner">
     <div class="top-banner-inner">
-      <span>New: Cascade Risk Alert simulates liquidation impact across 280,000+ positions.</span>
-      <a href="https://web-production-387cf.up.railway.app" target="_blank" rel="noopener">
-        View Live Dashboard →
-      </a>
+      <span
+        data-es="Nuevo: Cascade Risk Alert simula el impacto de liquidaciones en más de 280.000 posiciones."
+        data-en="New: Cascade Risk Alert simulates liquidation impact across 280,000+ positions."
+      >Nuevo: Cascade Risk Alert simula el impacto de liquidaciones en más de 280.000 posiciones.</span>
+
+      <a
+        href="https://web-production-387cf.up.railway.app"
+        target="_blank"
+        rel="noopener"
+        data-es="Ver dashboard en vivo →"
+        data-en="View live dashboard →"
+      >Ver dashboard en vivo →</a>
     </div>
   </div>
 
@@ -1427,22 +1313,27 @@
       </a>
 
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="#problem">Problem</a>
-        <a href="#how">How it works</a>
-        <a href="#subgraphs">Subgraphs</a>
-        <a href="#features">Features</a>
-        <a href="#risk">Risk Levels</a>
-        <a href="#glossary">Glossary</a>
+        <a href="#problem" data-es="Problema" data-en="Problem">Problema</a>
+        <a href="#how" data-es="Cómo funciona" data-en="How it works">Cómo funciona</a>
+        <a href="#subgraphs" data-es="Subgraphs" data-en="Subgraphs">Subgraphs</a>
+        <a href="#features" data-es="Funciones" data-en="Features">Funciones</a>
+        <a href="#risk" data-es="Riesgo" data-en="Risk Levels">Riesgo</a>
+        <a href="#glossary" data-es="Glosario" data-en="Glossary">Glosario</a>
       </nav>
 
       <div class="nav-actions">
-        <a class="lang-pill" href="#glossary">Simple Guide</a>
+        <button class="lang-pill" type="button" id="languageToggle" aria-label="Change language">EN</button>
         <a class="btn btn-secondary" href="https://thegraph.com/explorer" target="_blank" rel="noopener">
           The Graph
         </a>
-        <a class="btn btn-primary" href="https://web-production-387cf.up.railway.app" target="_blank" rel="noopener">
-          Live Dashboard
-        </a>
+        <a
+          class="btn btn-primary"
+          href="https://web-production-387cf.up.railway.app"
+          target="_blank"
+          rel="noopener"
+          data-es="Dashboard en vivo"
+          data-en="Live Dashboard"
+        >Dashboard en vivo</a>
       </div>
     </div>
   </header>
@@ -1452,52 +1343,72 @@
       <div class="hero-copy reveal">
         <div class="eyebrow">
           <span class="pulse-dot"></span>
-          Live · Monitoring 280,000+ Active Positions
+          <span
+            data-es="En vivo · Monitorizando más de 280.000 posiciones activas"
+            data-en="Live · Monitoring 280,000+ active positions"
+          >En vivo · Monitorizando más de 280.000 posiciones activas</span>
         </div>
 
         <h1>
-          Real-Time <br>
-          <span class="gradient-text">Liquidation Risk</span><br>
-          for DeFi.
+          <span data-es="Riesgo de" data-en="Real-Time">Riesgo de</span><br>
+          <span class="gradient-text" data-es="liquidación" data-en="Liquidation Risk">liquidación</span><br>
+          <span data-es="en tiempo real." data-en="for DeFi.">en tiempo real.</span>
         </h1>
 
-        <p class="hero-description">
-          DeFi Risk Monitor watches thousands of lending positions in real time and detects which users,
-          protocols or markets are close to liquidation. In simple terms: it helps you see where the next
-          wave of forced selling could appear before it happens.
+        <p
+          class="hero-description"
+          data-es="DeFi Risk Monitor observa miles de préstamos en tiempo real y detecta qué posiciones están cerca de ser liquidadas. Dicho de forma sencilla: ayuda a ver dónde podría aparecer la próxima ola de ventas forzadas antes de que ocurra."
+          data-en="DeFi Risk Monitor watches thousands of lending positions in real time and detects which ones are close to liquidation. In simple terms: it helps identify where the next wave of forced selling could appear before it happens."
+        >
+          DeFi Risk Monitor observa miles de préstamos en tiempo real y detecta qué posiciones están cerca de ser liquidadas. Dicho de forma sencilla: ayuda a ver dónde podría aparecer la próxima ola de ventas forzadas antes de que ocurra.
         </p>
 
         <div class="simple-explainer">
-          <span>Simple explanation</span>
-          <p>
-            When someone borrows in DeFi, they must deposit collateral. If the collateral value falls too much,
-            the position can be liquidated. This dashboard tracks that risk across several chains.
+          <span
+            data-es="Explicación sencilla"
+            data-en="Simple explanation"
+          >Explicación sencilla</span>
+          <p
+            data-es="Imagina que alguien pide un préstamo dejando criptomonedas como garantía. Si esa garantía pierde demasiado valor, el sistema puede venderla automáticamente para cubrir la deuda. Esta web vigila ese riesgo en varias redes."
+            data-en="Imagine someone borrows money by depositing crypto as collateral. If that collateral loses too much value, the system can automatically sell it to cover the debt. This website monitors that risk across several networks."
+          >
+            Imagina que alguien pide un préstamo dejando criptomonedas como garantía. Si esa garantía pierde demasiado valor, el sistema puede venderla automáticamente para cubrir la deuda. Esta web vigila ese riesgo en varias redes.
           </p>
         </div>
 
         <div class="hero-buttons">
-          <a class="btn btn-primary" href="#problem">Understand the Problem</a>
-          <a class="btn btn-secondary" href="https://web-production-387cf.up.railway.app" target="_blank" rel="noopener">
-            View Live Dashboard →
-          </a>
+          <a
+            class="btn btn-primary"
+            href="#problem"
+            data-es="Entender el problema"
+            data-en="Understand the problem"
+          >Entender el problema</a>
+          <a
+            class="btn btn-secondary"
+            href="https://web-production-387cf.up.railway.app"
+            target="_blank"
+            rel="noopener"
+            data-es="Ver dashboard en vivo →"
+            data-en="View live dashboard →"
+          >Ver dashboard en vivo →</a>
         </div>
 
         <div class="mini-stats">
           <div class="mini-stat">
             <strong>280K+</strong>
-            <span>Active Positions</span>
+            <span data-es="Posiciones activas" data-en="Active positions">Posiciones activas</span>
           </div>
           <div class="mini-stat">
             <strong>5</strong>
-            <span>Chains</span>
+            <span data-es="Redes" data-en="Chains">Redes</span>
           </div>
           <div class="mini-stat">
             <strong>220K+</strong>
-            <span>Queries / 30d</span>
+            <span data-es="Queries / 30d" data-en="Queries / 30d">Queries / 30d</span>
           </div>
           <div class="mini-stat">
             <strong>71K</strong>
-            <span>GRT Signal</span>
+            <span data-es="Señal GRT" data-en="GRT Signal">Señal GRT</span>
           </div>
         </div>
       </div>
@@ -1516,22 +1427,22 @@
 
           <div class="float-chip one">
             <strong>280K+</strong>
-            <span>Positions tracked</span>
+            <span data-es="Posiciones" data-en="Positions">Posiciones</span>
           </div>
 
           <div class="float-chip two">
             <strong>5 EVM</strong>
-            <span>Chains monitored</span>
+            <span data-es="Redes monitorizadas" data-en="Chains monitored">Redes monitorizadas</span>
           </div>
 
           <div class="float-chip three">
             <strong>CRITICAL</strong>
-            <span>Liquidation alerts</span>
+            <span data-es="Alertas de liquidación" data-en="Liquidation alerts">Alertas de liquidación</span>
           </div>
 
           <div class="float-chip four">
             <strong>GraphQL</strong>
-            <span>Open API</span>
+            <span data-es="API abierta" data-en="Open API">API abierta</span>
           </div>
         </div>
       </div>
@@ -1539,7 +1450,7 @@
 
     <section class="trusted reveal">
       <div class="container">
-        <p class="section-kicker">Deployed on</p>
+        <p class="section-kicker" data-es="Construido sobre" data-en="Built on">Construido sobre</p>
 
         <div class="logo-marquee">
           <div class="logo-track">
@@ -1555,7 +1466,6 @@
             <span class="logo-pill">Telegram Bot</span>
             <span class="logo-pill">Discord Alerts</span>
             <span class="logo-pill">Railway</span>
-
             <span class="logo-pill">Ethereum</span>
             <span class="logo-pill">Arbitrum</span>
             <span class="logo-pill">Base</span>
@@ -1576,77 +1486,94 @@
     <section id="problem" class="container reveal">
       <div class="section-header">
         <div>
-          <p class="section-kicker">For everyone</p>
-          <h2 class="section-title">What Problem Does This Solve?</h2>
+          <p class="section-kicker" data-es="Para todos" data-en="For everyone">Para todos</p>
+          <h2
+            class="section-title"
+            data-es="¿Qué problema resuelve?"
+            data-en="What problem does this solve?"
+          >¿Qué problema resuelve?</h2>
         </div>
-        <p class="section-description">
-          You do not need to be a DeFi expert to understand the core idea: this tool tracks where borrowing positions are becoming dangerous.
+        <p
+          class="section-description"
+          data-es="No hace falta ser experto en DeFi para entender la idea: la herramienta detecta cuándo una posición de préstamo se está acercando a una zona peligrosa."
+          data-en="You do not need to be a DeFi expert to understand the idea: the tool detects when a lending position is getting close to a dangerous area."
+        >
+          No hace falta ser experto en DeFi para entender la idea: la herramienta detecta cuándo una posición de préstamo se está acercando a una zona peligrosa.
         </p>
       </div>
 
       <div class="problem-grid">
         <article class="card problem-card-large">
-          <p class="section-kicker">Simple explanation</p>
-          <h3>DeFi liquidations can move markets fast.</h3>
+          <p class="section-kicker" data-es="Explicación sencilla" data-en="Simple explanation">Explicación sencilla</p>
+          <h3
+            data-es="Las liquidaciones DeFi pueden mover el mercado muy rápido."
+            data-en="DeFi liquidations can move markets fast."
+          >Las liquidaciones DeFi pueden mover el mercado muy rápido.</h3>
 
-          <p>
-            In DeFi lending platforms such as Aave or Compound, users can borrow assets by depositing collateral.
-            For example, someone may deposit ETH and borrow stablecoins.
-          </p>
+          <p
+            data-es="En plataformas como Aave o Compound, una persona puede pedir prestado depositando antes una garantía. Por ejemplo, puede dejar ETH como garantía y pedir prestadas stablecoins."
+            data-en="On platforms like Aave or Compound, a person can borrow by depositing collateral first. For example, they can deposit ETH as collateral and borrow stablecoins."
+          >En plataformas como Aave o Compound, una persona puede pedir prestado depositando antes una garantía. Por ejemplo, puede dejar ETH como garantía y pedir prestadas stablecoins.</p>
 
-          <p>
-            If the value of their collateral falls too much, the protocol can automatically liquidate the position.
-            That means the collateral is sold to repay the debt.
-          </p>
+          <p
+            data-es="Si el valor de esa garantía cae demasiado, el protocolo puede liquidar la posición automáticamente. En la práctica, parte de la garantía se vende para cubrir la deuda."
+            data-en="If the value of that collateral falls too much, the protocol can liquidate the position automatically. In practice, part of the collateral is sold to cover the debt."
+          >Si el valor de esa garantía cae demasiado, el protocolo puede liquidar la posición automáticamente. En la práctica, parte de la garantía se vende para cubrir la deuda.</p>
 
-          <p>
-            When many positions are close to liquidation at the same time, a price movement can trigger a chain reaction.
-            DeFi Risk Monitor is designed to detect those vulnerable areas before they become a bigger problem.
-          </p>
+          <p
+            data-es="Cuando muchas posiciones están cerca de liquidación al mismo tiempo, una caída de precio puede crear una reacción en cadena. DeFi Risk Monitor ayuda a detectar esas zonas vulnerables antes de que el riesgo sea más visible."
+            data-en="When many positions are close to liquidation at the same time, a price drop can create a chain reaction. DeFi Risk Monitor helps detect those vulnerable areas before the risk becomes more visible."
+          >Cuando muchas posiciones están cerca de liquidación al mismo tiempo, una caída de precio puede crear una reacción en cadena. DeFi Risk Monitor ayuda a detectar esas zonas vulnerables antes de que el riesgo sea más visible.</p>
 
-          <div class="warning-note">
-            This is not financial advice. The tool provides risk data and monitoring, but it does not tell users what to buy or sell.
-          </div>
+          <div
+            class="warning-note"
+            data-es="Esto no es asesoramiento financiero. La herramienta ofrece datos y monitorización de riesgo, pero no indica qué comprar o vender."
+            data-en="This is not financial advice. The tool provides risk data and monitoring, but it does not tell users what to buy or sell."
+          >Esto no es asesoramiento financiero. La herramienta ofrece datos y monitorización de riesgo, pero no indica qué comprar o vender.</div>
         </article>
 
         <div class="explanation-stack">
           <div class="explanation-item">
             <div class="explanation-number">1</div>
             <div>
-              <h4>People borrow using collateral</h4>
-              <p>
-                A user deposits crypto, such as ETH, and borrows another asset. The deposited crypto protects the lender.
-              </p>
+              <h4 data-es="Se pide prestado usando una garantía" data-en="People borrow using collateral">Se pide prestado usando una garantía</h4>
+              <p
+                data-es="El usuario deposita un activo cripto, como ETH, y pide prestado otro activo. La garantía protege al protocolo."
+                data-en="The user deposits a crypto asset, such as ETH, and borrows another asset. The collateral protects the protocol."
+              >El usuario deposita un activo cripto, como ETH, y pide prestado otro activo. La garantía protege al protocolo.</p>
             </div>
           </div>
 
           <div class="explanation-item">
             <div class="explanation-number">2</div>
             <div>
-              <h4>The collateral value can fall</h4>
-              <p>
-                If the market drops, the value of the user’s collateral may no longer be enough to safely cover the loan.
-              </p>
+              <h4 data-es="La garantía puede perder valor" data-en="The collateral can lose value">La garantía puede perder valor</h4>
+              <p
+                data-es="Si el mercado cae, la garantía puede dejar de ser suficiente para cubrir el préstamo de forma segura."
+                data-en="If the market drops, the collateral may no longer be enough to safely cover the loan."
+              >Si el mercado cae, la garantía puede dejar de ser suficiente para cubrir el préstamo de forma segura.</p>
             </div>
           </div>
 
           <div class="explanation-item">
             <div class="explanation-number">3</div>
             <div>
-              <h4>The position becomes risky</h4>
-              <p>
-                The protocol calculates a number called health factor. The lower it gets, the closer the position is to liquidation.
-              </p>
+              <h4 data-es="La posición se vuelve peligrosa" data-en="The position becomes risky">La posición se vuelve peligrosa</h4>
+              <p
+                data-es="El protocolo calcula una métrica llamada health factor. Cuanto más se acerca a 1, más cerca está la liquidación."
+                data-en="The protocol calculates a metric called health factor. The closer it gets to 1, the closer the position is to liquidation."
+              >El protocolo calcula una métrica llamada health factor. Cuanto más se acerca a 1, más cerca está la liquidación.</p>
             </div>
           </div>
 
           <div class="explanation-item">
             <div class="explanation-number">4</div>
             <div>
-              <h4>Liquidation can happen automatically</h4>
-              <p>
-                If the position becomes unsafe, the protocol allows liquidators to repay the debt and sell part of the collateral.
-              </p>
+              <h4 data-es="La liquidación puede ocurrir automáticamente" data-en="Liquidation can happen automatically">La liquidación puede ocurrir automáticamente</h4>
+              <p
+                data-es="Si la posición entra en zona insegura, terceros pueden liquidarla y parte de la garantía se vende para pagar deuda."
+                data-en="If the position enters an unsafe zone, third parties can liquidate it and part of the collateral is sold to repay debt."
+              >Si la posición entra en zona insegura, terceros pueden liquidarla y parte de la garantía se vende para pagar deuda.</p>
             </div>
           </div>
         </div>
@@ -1656,48 +1583,58 @@
     <section id="how" class="container reveal">
       <div class="section-header">
         <div>
-          <p class="section-kicker">How it works</p>
-          <h2 class="section-title">From Blockchain Data to Risk Alerts.</h2>
+          <p class="section-kicker" data-es="Cómo funciona" data-en="How it works">Cómo funciona</p>
+          <h2
+            class="section-title"
+            data-es="De datos blockchain a alertas claras."
+            data-en="From blockchain data to clear alerts."
+          >De datos blockchain a alertas claras.</h2>
         </div>
-        <p class="section-description">
-          The tool turns complex on-chain lending data into simple risk levels, dashboards and alerts.
-        </p>
+        <p
+          class="section-description"
+          data-es="La herramienta transforma datos complejos de préstamos on-chain en niveles de riesgo, dashboards y alertas fáciles de entender."
+          data-en="The tool turns complex on-chain lending data into risk levels, dashboards and alerts that are easy to understand."
+        >La herramienta transforma datos complejos de préstamos on-chain en niveles de riesgo, dashboards y alertas fáciles de entender.</p>
       </div>
 
       <div class="flow-grid">
         <article class="card flow-card">
           <div class="flow-icon">🏦</div>
-          <h3>1. Lending Protocols</h3>
-          <p>
-            Aave and Compound contain thousands of borrowing positions. Each position has collateral, debt and a liquidation threshold.
-          </p>
+          <h3 data-es="1. Protocolos de préstamo" data-en="1. Lending protocols">1. Protocolos de préstamo</h3>
+          <p
+            data-es="Aave y Compound tienen miles de préstamos abiertos. Cada uno tiene garantía, deuda y un umbral de liquidación."
+            data-en="Aave and Compound contain thousands of open loans. Each one has collateral, debt and a liquidation threshold."
+          >Aave y Compound tienen miles de préstamos abiertos. Cada uno tiene garantía, deuda y un umbral de liquidación.</p>
           <div class="flow-arrow">→</div>
         </article>
 
         <article class="card flow-card">
           <div class="flow-icon">🔗</div>
-          <h3>2. Blockchain Networks</h3>
-          <p>
-            Those positions live on networks such as Ethereum, Arbitrum, Base, Polygon and Optimism.
-          </p>
+          <h3 data-es="2. Redes blockchain" data-en="2. Blockchain networks">2. Redes blockchain</h3>
+          <p
+            data-es="Esas posiciones viven en redes como Ethereum, Arbitrum, Base, Polygon y Optimism."
+            data-en="Those positions live on networks such as Ethereum, Arbitrum, Base, Polygon and Optimism."
+          >Esas posiciones viven en redes como Ethereum, Arbitrum, Base, Polygon y Optimism.</p>
           <div class="flow-arrow">→</div>
         </article>
 
         <article class="card flow-card">
           <div class="flow-icon">🧠</div>
-          <h3>3. Risk Engine</h3>
-          <p>
-            The system reads position data, calculates risk levels and identifies accounts that are close to liquidation.
-          </p>
+          <h3 data-es="3. Motor de riesgo" data-en="3. Risk engine">3. Motor de riesgo</h3>
+          <p
+            data-es="El sistema lee los datos, calcula niveles de riesgo y detecta posiciones cercanas a liquidación."
+            data-en="The system reads the data, calculates risk levels and detects positions close to liquidation."
+          >El sistema lee los datos, calcula niveles de riesgo y detecta posiciones cercanas a liquidación.</p>
           <div class="flow-arrow">→</div>
         </article>
 
         <article class="card flow-card">
           <div class="flow-icon">🚨</div>
-          <h3>4. Dashboard & Alerts</h3>
-          <p>
-            The information becomes a dashboard, Telegram alerts, Discord notifications and weekly reports.
-          </p>
+          <h3 data-es="4. Dashboard y alertas" data-en="4. Dashboard and alerts">4. Dashboard y alertas</h3>
+          <p
+            data-es="La información se muestra en un dashboard y se convierte en alertas de Telegram, Discord y reportes."
+            data-en="The information appears in a dashboard and becomes Telegram alerts, Discord notifications and reports."
+          >La información se muestra en un dashboard y se convierte en alertas de Telegram, Discord y reportes.</p>
         </article>
       </div>
     </section>
@@ -1706,163 +1643,211 @@
       <div class="section-header">
         <div>
           <p class="section-kicker">The Graph Protocol</p>
-          <h2 class="section-title">Deployed Subgraphs.</h2>
+          <h2
+            class="section-title"
+            data-es="Subgraphs desplegados."
+            data-en="Deployed subgraphs."
+          >Subgraphs desplegados.</h2>
         </div>
-        <p class="section-description">
-          Six production subgraphs on The Graph Network. Click any card to search it safely in The Graph Explorer.
-        </p>
+        <p
+          class="section-description"
+          data-es="Haz clic en cualquier tarjeta para abrir directamente el subgraph en The Graph Explorer, en la pestaña donde puedes ejecutar queries en tiempo real."
+          data-en="Click any card to open the subgraph directly in The Graph Explorer, on the tab where you can run live queries."
+        >Haz clic en cualquier tarjeta para abrir directamente el subgraph en The Graph Explorer, en la pestaña donde puedes ejecutar queries en tiempo real.</p>
       </div>
 
       <div class="subgraph-grid">
-        <article
-          class="card subgraph-card js-subgraph"
-          data-subgraph="aave-liquidation-risk"
-          tabindex="0"
-          role="button"
-          aria-label="Open aave-liquidation-risk in The Graph Explorer"
+        <a
+          class="card subgraph-card"
+          href="https://thegraph.com/explorer/subgraphs/AQhBTEUat8EKFz7sntqTo3fMYusJ3BbQbi4uGiwT5oD3?chain=arbitrum-one&view=Query"
+          target="_blank"
+          rel="noopener"
         >
           <div>
             <div class="card-top">
               <div class="chain-badge"><span class="chain-icon">ETH</span> Ethereum</div>
-              <span class="live-badge">Live</span>
+              <span class="live-badge">Query</span>
             </div>
             <h3>aave-liquidation-risk</h3>
-            <p>Aave V3 lending positions, health factors and liquidation risk on Ethereum.</p>
-            <p class="open-note">Open in The Graph Explorer →</p>
+            <p
+              data-es="Subgraph principal para consultar posiciones, health factors y riesgo de liquidación en Ethereum."
+              data-en="Main subgraph to query positions, health factors and liquidation risk on Ethereum."
+            >Subgraph principal para consultar posiciones, health factors y riesgo de liquidación en Ethereum.</p>
+            <div class="query-preview">
+              <span data-es="Query en tiempo real" data-en="Live query">Query en tiempo real</span>
+              <code>{ positions(first: 5) { id healthFactor riskLevel } }</code>
+            </div>
+            <p class="open-note" data-es="Abrir consola de queries →" data-en="Open query console →">Abrir consola de queries →</p>
           </div>
           <div class="tag-row">
             <span class="tag">Aave V3</span>
-            <span class="tag">Lending</span>
-            <span class="tag">DeFi</span>
+            <span class="tag">Ethereum</span>
+            <span class="tag">Live Query</span>
           </div>
-        </article>
+        </a>
 
-        <article
-          class="card subgraph-card js-subgraph"
-          data-subgraph="aave-liquidation-risk-arbitrum"
-          tabindex="0"
-          role="button"
-          aria-label="Open aave-liquidation-risk-arbitrum in The Graph Explorer"
+        <a
+          class="card subgraph-card"
+          href="https://thegraph.com/explorer/subgraphs/C4EGD574KuKV8GeAnaTkwjQ5fRtZYAMBMFSyimRXijqY?chain=arbitrum-one&view=Query"
+          target="_blank"
+          rel="noopener"
         >
           <div>
             <div class="card-top">
               <div class="chain-badge"><span class="chain-icon">ARB</span> Arbitrum</div>
-              <span class="live-badge">Live</span>
+              <span class="live-badge">Query</span>
             </div>
             <h3>aave-liquidation-risk-arbitrum</h3>
-            <p>Real-time position risk and protocol stats for Aave V3 on Arbitrum.</p>
-            <p class="open-note">Open in The Graph Explorer →</p>
+            <p
+              data-es="Permite consultar en tiempo real posiciones de Aave V3 desplegadas en Arbitrum."
+              data-en="Allows real-time querying of Aave V3 positions deployed on Arbitrum."
+            >Permite consultar en tiempo real posiciones de Aave V3 desplegadas en Arbitrum.</p>
+            <div class="query-preview">
+              <span data-es="Query en tiempo real" data-en="Live query">Query en tiempo real</span>
+              <code>{ positions(first: 5) { id healthFactor riskLevel } }</code>
+            </div>
+            <p class="open-note" data-es="Abrir consola de queries →" data-en="Open query console →">Abrir consola de queries →</p>
           </div>
           <div class="tag-row">
             <span class="tag">Aave V3</span>
-            <span class="tag">Layer 2</span>
-            <span class="tag">Risk</span>
+            <span class="tag">Arbitrum</span>
+            <span class="tag">Live Query</span>
           </div>
-        </article>
+        </a>
 
-        <article
-          class="card subgraph-card js-subgraph"
-          data-subgraph="aave-liquidation-risk-base"
-          tabindex="0"
-          role="button"
-          aria-label="Open aave-liquidation-risk-base in The Graph Explorer"
+        <a
+          class="card subgraph-card"
+          href="https://thegraph.com/explorer/subgraphs/Bf9yBDX9XrpNXLkfktdaSYBbfswdxcFkXzdMmBvL83SF?chain=arbitrum-one&view=Query"
+          target="_blank"
+          rel="noopener"
         >
           <div>
             <div class="card-top">
               <div class="chain-badge"><span class="chain-icon">B</span> Base</div>
-              <span class="live-badge">Live</span>
+              <span class="live-badge">Query</span>
             </div>
             <h3>aave-liquidation-risk-base</h3>
-            <p>Liquidation risk intelligence for Aave V3 positions deployed on Base.</p>
-            <p class="open-note">Open in The Graph Explorer →</p>
+            <p
+              data-es="Subgraph para consultar riesgo de liquidación de posiciones Aave V3 en la red Base."
+              data-en="Subgraph for querying liquidation risk of Aave V3 positions on Base."
+            >Subgraph para consultar riesgo de liquidación de posiciones Aave V3 en la red Base.</p>
+            <div class="query-preview">
+              <span data-es="Query en tiempo real" data-en="Live query">Query en tiempo real</span>
+              <code>{ positions(first: 5) { id healthFactor riskLevel } }</code>
+            </div>
+            <p class="open-note" data-es="Abrir consola de queries →" data-en="Open query console →">Abrir consola de queries →</p>
           </div>
           <div class="tag-row">
             <span class="tag">Aave V3</span>
             <span class="tag">Base</span>
-            <span class="tag">Monitoring</span>
+            <span class="tag">Live Query</span>
           </div>
-        </article>
+        </a>
 
-        <article
-          class="card subgraph-card js-subgraph"
-          data-subgraph="aave-liquidation-risk-polygon"
-          tabindex="0"
-          role="button"
-          aria-label="Open aave-liquidation-risk-polygon in The Graph Explorer"
+        <a
+          class="card subgraph-card"
+          href="https://thegraph.com/explorer/subgraphs/FBVyahKnFFc1b6E7CpRHK59whHta3AkLCAgqfpReXAvK?chain=arbitrum-one&view=Query"
+          target="_blank"
+          rel="noopener"
         >
           <div>
             <div class="card-top">
               <div class="chain-badge"><span class="chain-icon">POL</span> Polygon</div>
-              <span class="live-badge">Live</span>
+              <span class="live-badge">Query</span>
             </div>
             <h3>aave-liquidation-risk-polygon</h3>
-            <p>Multi-chain Aave V3 liquidation tracking and health factor snapshots.</p>
-            <p class="open-note">Open in The Graph Explorer →</p>
+            <p
+              data-es="Consulta posiciones, niveles de riesgo y datos de liquidación de Aave V3 en Polygon."
+              data-en="Query positions, risk levels and liquidation data from Aave V3 on Polygon."
+            >Consulta posiciones, niveles de riesgo y datos de liquidación de Aave V3 en Polygon.</p>
+            <div class="query-preview">
+              <span data-es="Query en tiempo real" data-en="Live query">Query en tiempo real</span>
+              <code>{ positions(first: 5) { id healthFactor riskLevel } }</code>
+            </div>
+            <p class="open-note" data-es="Abrir consola de queries →" data-en="Open query console →">Abrir consola de queries →</p>
           </div>
           <div class="tag-row">
             <span class="tag">Aave V3</span>
             <span class="tag">Polygon</span>
-            <span class="tag">Snapshots</span>
+            <span class="tag">Live Query</span>
           </div>
-        </article>
+        </a>
 
-        <article
-          class="card subgraph-card js-subgraph"
-          data-subgraph="aave-liquidation-risk-optimism"
-          tabindex="0"
-          role="button"
-          aria-label="Open aave-liquidation-risk-optimism in The Graph Explorer"
+        <a
+          class="card subgraph-card"
+          href="https://thegraph.com/explorer/subgraphs/9hdBacnHPDmiMCNjdFUcPFgGcPPnYWrofsKvqjoEvcKu?chain=arbitrum-one&view=Query"
+          target="_blank"
+          rel="noopener"
         >
           <div>
             <div class="card-top">
               <div class="chain-badge"><span class="chain-icon">OP</span> Optimism</div>
-              <span class="live-badge">Live</span>
+              <span class="live-badge">Query</span>
             </div>
             <h3>aave-liquidation-risk-optimism</h3>
-            <p>Optimism-based Aave V3 position monitoring and liquidation classification.</p>
-            <p class="open-note">Open in The Graph Explorer →</p>
+            <p
+              data-es="Permite consultar el estado de posiciones de Aave V3 y su proximidad a liquidación en Optimism."
+              data-en="Allows querying the status of Aave V3 positions and their liquidation proximity on Optimism."
+            >Permite consultar el estado de posiciones de Aave V3 y su proximidad a liquidación en Optimism.</p>
+            <div class="query-preview">
+              <span data-es="Query en tiempo real" data-en="Live query">Query en tiempo real</span>
+              <code>{ positions(first: 5) { id healthFactor riskLevel } }</code>
+            </div>
+            <p class="open-note" data-es="Abrir consola de queries →" data-en="Open query console →">Abrir consola de queries →</p>
           </div>
           <div class="tag-row">
             <span class="tag">Aave V3</span>
             <span class="tag">Optimism</span>
-            <span class="tag">Alerts</span>
+            <span class="tag">Live Query</span>
           </div>
-        </article>
+        </a>
 
-        <article
-          class="card subgraph-card js-subgraph"
-          data-subgraph="compound-v3-liquidation-risk"
-          tabindex="0"
-          role="button"
-          aria-label="Open compound-v3-liquidation-risk in The Graph Explorer"
+        <a
+          class="card subgraph-card"
+          href="https://thegraph.com/explorer/subgraphs/AwoxEZbiWLvv6e3QdvdMZw4WDURdGbvPfHmZRc8Dpfz9?chain=arbitrum-one&view=Query"
+          target="_blank"
+          rel="noopener"
         >
           <div>
             <div class="card-top">
               <div class="chain-badge"><span class="chain-icon">C</span> Compound</div>
-              <span class="live-badge">Live</span>
+              <span class="live-badge">Query</span>
             </div>
-            <h3>compound-v3-liquidation-risk</h3>
-            <p>Compound V3 entity types, collateral positions and liquidation risk monitoring.</p>
-            <p class="open-note">Open in The Graph Explorer →</p>
+            <h3>Compound V3 Ethereum</h3>
+            <p
+              data-es="Subgraph público de Compound V3 en Ethereum. Sirve para consultar datos del protocolo y construir análisis de riesgo."
+              data-en="Public Compound V3 subgraph on Ethereum. It can be used to query protocol data and build risk analysis."
+            >Subgraph público de Compound V3 en Ethereum. Sirve para consultar datos del protocolo y construir análisis de riesgo.</p>
+            <div class="query-preview">
+              <span data-es="Query en tiempo real" data-en="Live query">Query en tiempo real</span>
+              <code>{ accounts(first: 5) { id } }</code>
+            </div>
+            <p class="open-note" data-es="Abrir consola de queries →" data-en="Open query console →">Abrir consola de queries →</p>
           </div>
           <div class="tag-row">
             <span class="tag">Compound V3</span>
-            <span class="tag">Entity Types</span>
-            <span class="tag">Live</span>
+            <span class="tag">Ethereum</span>
+            <span class="tag">Live Query</span>
           </div>
-        </article>
+        </a>
       </div>
     </section>
 
     <section id="features" class="container reveal">
       <div class="section-header">
         <div>
-          <p class="section-kicker">Ecosystem</p>
-          <h2 class="section-title">Built Around the Subgraphs.</h2>
+          <p class="section-kicker" data-es="Ecosistema" data-en="Ecosystem">Ecosistema</p>
+          <h2
+            class="section-title"
+            data-es="Construido alrededor de los subgraphs."
+            data-en="Built around the subgraphs."
+          >Construido alrededor de los subgraphs.</h2>
         </div>
-        <p class="section-description">
-          A full monitoring stack delivering risk intelligence across multiple channels, powered by on-chain data.
-        </p>
+        <p
+          class="section-description"
+          data-es="Un sistema de monitorización que convierte datos on-chain en información útil para entender el riesgo."
+          data-en="A monitoring system that turns on-chain data into useful information for understanding risk."
+        >Un sistema de monitorización que convierte datos on-chain en información útil para entender el riesgo.</p>
       </div>
 
       <div class="features-grid">
@@ -1870,9 +1855,10 @@
           <div class="feature-number">01</div>
           <div class="feature-icon">⚡</div>
           <h3>Cascade Risk Alert</h3>
-          <p>
-            Simulates market impact before it happens. It helps detect whether many liquidations could occur together.
-          </p>
+          <p
+            data-es="Simula qué podría pasar si muchas posiciones se liquidan a la vez. Ayuda a detectar riesgo de reacción en cadena."
+            data-en="Simulates what could happen if many positions are liquidated at the same time. It helps detect chain-reaction risk."
+          >Simula qué podría pasar si muchas posiciones se liquidan a la vez. Ayuda a detectar riesgo de reacción en cadena.</p>
           <div class="tag-row">
             <span class="tag">Simulation</span>
             <span class="tag">Market Impact</span>
@@ -1884,9 +1870,10 @@
           <div class="feature-number">02</div>
           <div class="feature-icon">📊</div>
           <h3>Web Dashboard</h3>
-          <p>
-            A visual dashboard showing position health, risk distribution and the global DeFi Risk Index from 0 to 100.
-          </p>
+          <p
+            data-es="Dashboard visual con salud de posiciones, distribución del riesgo y un índice global de riesgo DeFi de 0 a 100."
+            data-en="Visual dashboard with position health, risk distribution and a global DeFi Risk Index from 0 to 100."
+          >Dashboard visual con salud de posiciones, distribución del riesgo y un índice global de riesgo DeFi de 0 a 100.</p>
           <div class="tag-row">
             <span class="tag">Dashboard</span>
             <span class="tag">Multi-chain</span>
@@ -1898,9 +1885,10 @@
           <div class="feature-number">03</div>
           <div class="feature-icon">🚨</div>
           <h3>Telegram Bot</h3>
-          <p>
-            Instant notifications for CRITICAL and DANGER positions the moment they enter liquidation territory.
-          </p>
+          <p
+            data-es="Alertas instantáneas cuando una posición entra en zona CRITICAL o DANGER."
+            data-en="Instant alerts when a position enters the CRITICAL or DANGER zone."
+          >Alertas instantáneas cuando una posición entra en zona CRITICAL o DANGER.</p>
           <div class="tag-row">
             <span class="tag">Push Alerts</span>
             <span class="tag">Telegram</span>
@@ -1912,9 +1900,10 @@
           <div class="feature-number">04</div>
           <div class="feature-icon">💬</div>
           <h3>Discord Alerts</h3>
-          <p>
-            Protocol-wide risk announcements and daily summaries broadcast automatically to your Discord community.
-          </p>
+          <p
+            data-es="Resúmenes y avisos automáticos para comunidades, equipos o investigadores que sigan el riesgo del mercado."
+            data-en="Automatic summaries and notifications for communities, teams or researchers following market risk."
+          >Resúmenes y avisos automáticos para comunidades, equipos o investigadores que sigan el riesgo del mercado.</p>
           <div class="tag-row">
             <span class="tag">Discord</span>
             <span class="tag">Community</span>
@@ -1926,9 +1915,10 @@
           <div class="feature-number">05</div>
           <div class="feature-icon">📄</div>
           <h3>Google Sheets Reports</h3>
-          <p>
-            Weekly automated exports with full position lists, risk breakdowns and historical liquidation trends.
-          </p>
+          <p
+            data-es="Exportaciones semanales con posiciones, niveles de riesgo y tendencias para analizar el histórico."
+            data-en="Weekly exports with positions, risk levels and trends for historical analysis."
+          >Exportaciones semanales con posiciones, niveles de riesgo y tendencias para analizar el histórico.</p>
           <div class="tag-row">
             <span class="tag">Weekly</span>
             <span class="tag">Spreadsheet</span>
@@ -1940,9 +1930,10 @@
           <div class="feature-number">06</div>
           <div class="feature-icon">🔎</div>
           <h3>GraphQL API</h3>
-          <p>
-            Query positions, snapshots and alerts through The Graph decentralized API. Fully composable and open.
-          </p>
+          <p
+            data-es="Permite consultar posiciones, alertas y datos del protocolo con queries personalizadas."
+            data-en="Allows querying positions, alerts and protocol data with custom queries."
+          >Permite consultar posiciones, alertas y datos del protocolo con queries personalizadas.</p>
           <div class="tag-row">
             <span class="tag">GraphQL</span>
             <span class="tag">Composable</span>
@@ -1955,21 +1946,28 @@
     <section class="container reveal">
       <div class="section-header">
         <div>
-          <p class="section-kicker">Use cases</p>
-          <h2 class="section-title">Who Can Use This?</h2>
+          <p class="section-kicker" data-es="Casos de uso" data-en="Use cases">Casos de uso</p>
+          <h2
+            class="section-title"
+            data-es="¿Quién puede usar esto?"
+            data-en="Who can use this?"
+          >¿Quién puede usar esto?</h2>
         </div>
-        <p class="section-description">
-          The same data can be useful for traders, analysts, DeFi teams, researchers and risk managers.
-        </p>
+        <p
+          class="section-description"
+          data-es="Los mismos datos pueden ser útiles para traders, analistas, protocolos, DAOs, investigadores y gestores de riesgo."
+          data-en="The same data can be useful for traders, analysts, protocols, DAOs, researchers and risk managers."
+        >Los mismos datos pueden ser útiles para traders, analistas, protocolos, DAOs, investigadores y gestores de riesgo.</p>
       </div>
 
       <div class="audience-grid">
         <article class="card audience-card">
           <div class="feature-icon">📈</div>
-          <h3>Traders</h3>
-          <p>
-            Traders can monitor where forced selling may appear and understand whether the market is entering a higher-risk environment.
-          </p>
+          <h3 data-es="Traders" data-en="Traders">Traders</h3>
+          <p
+            data-es="Pueden detectar dónde podría aparecer venta forzada y entender si el mercado entra en una zona de mayor riesgo."
+            data-en="They can detect where forced selling may appear and understand whether the market is entering a higher-risk zone."
+          >Pueden detectar dónde podría aparecer venta forzada y entender si el mercado entra en una zona de mayor riesgo.</p>
           <div class="tag-row">
             <span class="tag">Market Risk</span>
             <span class="tag">Volatility</span>
@@ -1979,9 +1977,10 @@
         <article class="card audience-card">
           <div class="feature-icon">🏛️</div>
           <h3>Protocols & DAOs</h3>
-          <p>
-            DeFi teams can track protocol-wide liquidation exposure and detect whether their users are becoming more vulnerable.
-          </p>
+          <p
+            data-es="Pueden monitorizar el riesgo agregado de su protocolo y ver si sus usuarios se están volviendo más vulnerables."
+            data-en="They can monitor protocol-wide risk and see whether their users are becoming more vulnerable."
+          >Pueden monitorizar el riesgo agregado de su protocolo y ver si sus usuarios se están volviendo más vulnerables.</p>
           <div class="tag-row">
             <span class="tag">Protocol Health</span>
             <span class="tag">Risk Monitoring</span>
@@ -1990,10 +1989,11 @@
 
         <article class="card audience-card">
           <div class="feature-icon">🧪</div>
-          <h3>Researchers</h3>
-          <p>
-            Analysts can use the data to study leverage, collateral behavior, liquidation patterns and systemic risk in DeFi lending.
-          </p>
+          <h3 data-es="Investigadores" data-en="Researchers">Investigadores</h3>
+          <p
+            data-es="Pueden estudiar apalancamiento, comportamiento de garantías, liquidaciones y riesgo sistémico en DeFi."
+            data-en="They can study leverage, collateral behavior, liquidations and systemic risk in DeFi."
+          >Pueden estudiar apalancamiento, comportamiento de garantías, liquidaciones y riesgo sistémico en DeFi.</p>
           <div class="tag-row">
             <span class="tag">Research</span>
             <span class="tag">On-chain Data</span>
@@ -2005,12 +2005,18 @@
     <section id="risk" class="container reveal">
       <div class="section-header">
         <div>
-          <p class="section-kicker">Risk Classification</p>
-          <h2 class="section-title">5-Level Risk System.</h2>
+          <p class="section-kicker" data-es="Clasificación de riesgo" data-en="Risk classification">Clasificación de riesgo</p>
+          <h2
+            class="section-title"
+            data-es="Sistema de riesgo en 5 niveles."
+            data-en="5-level risk system."
+          >Sistema de riesgo en 5 niveles.</h2>
         </div>
-        <p class="section-description">
-          Every position is scored in real time based on health factor proximity to the liquidation threshold.
-        </p>
+        <p
+          class="section-description"
+          data-es="Cada posición se clasifica según su cercanía a la liquidación. Así, una métrica compleja se convierte en una señal fácil de leer."
+          data-en="Each position is classified based on how close it is to liquidation. A complex metric becomes an easy-to-read signal."
+        >Cada posición se clasifica según su cercanía a la liquidación. Así, una métrica compleja se convierte en una señal fácil de leer.</p>
       </div>
 
       <div class="risk-layout">
@@ -2018,27 +2024,47 @@
           <div class="risk-list">
             <div class="risk-item">
               <div class="risk-name risk-critical">Critical</div>
-              <div class="risk-copy"><strong>HF &lt; 1.05.</strong> Liquidation imminent. Cascade alert active.</div>
+              <div
+                class="risk-copy"
+                data-es="HF < 1.05. Liquidación inminente. Riesgo máximo."
+                data-en="HF < 1.05. Liquidation imminent. Maximum risk."
+              >HF &lt; 1.05. Liquidación inminente. Riesgo máximo.</div>
             </div>
 
             <div class="risk-item">
               <div class="risk-name risk-danger">Danger</div>
-              <div class="risk-copy"><strong>HF 1.05–1.10.</strong> High probability. May trigger within hours.</div>
+              <div
+                class="risk-copy"
+                data-es="HF 1.05–1.10. Alta probabilidad de liquidación si el mercado se mueve."
+                data-en="HF 1.05–1.10. High liquidation probability if the market moves."
+              >HF 1.05–1.10. Alta probabilidad de liquidación si el mercado se mueve.</div>
             </div>
 
             <div class="risk-item">
               <div class="risk-name risk-warning">Warning</div>
-              <div class="risk-copy"><strong>HF 1.10–1.20.</strong> Significant moves could trigger liquidation.</div>
+              <div
+                class="risk-copy"
+                data-es="HF 1.10–1.20. Riesgo relevante en condiciones volátiles."
+                data-en="HF 1.10–1.20. Relevant risk in volatile conditions."
+              >HF 1.10–1.20. Riesgo relevante en condiciones volátiles.</div>
             </div>
 
             <div class="risk-item">
               <div class="risk-name risk-caution">Caution</div>
-              <div class="risk-copy"><strong>HF 1.20–1.50.</strong> Moderate risk in volatile conditions.</div>
+              <div
+                class="risk-copy"
+                data-es="HF 1.20–1.50. Riesgo moderado. La posición todavía tiene margen."
+                data-en="HF 1.20–1.50. Moderate risk. The position still has a buffer."
+              >HF 1.20–1.50. Riesgo moderado. La posición todavía tiene margen.</div>
             </div>
 
             <div class="risk-item">
               <div class="risk-name risk-safe">Safe</div>
-              <div class="risk-copy"><strong>HF &gt; 1.50.</strong> Well-collateralized, comfortable buffer.</div>
+              <div
+                class="risk-copy"
+                data-es="HF > 1.50. Posición más protegida, con mayor margen de seguridad."
+                data-en="HF > 1.50. More protected position, with a larger safety buffer."
+              >HF &gt; 1.50. Posición más protegida, con mayor margen de seguridad.</div>
             </div>
           </div>
         </div>
@@ -2046,10 +2072,18 @@
         <div class="card risk-index-card">
           <div>
             <p class="section-kicker">Global Risk Index</p>
-            <h3 class="section-title" style="font-size: 2.6rem;">DeFi Risk Index 0–100.</h3>
-            <p class="section-description" style="margin-top: 16px;">
-              Composite score aggregating liquidation exposure across monitored protocols and chains.
-            </p>
+            <h3
+              class="section-title"
+              style="font-size: 2.6rem;"
+              data-es="Índice de riesgo DeFi 0–100."
+              data-en="DeFi Risk Index 0–100."
+            >Índice de riesgo DeFi 0–100.</h3>
+            <p
+              class="section-description"
+              style="margin-top: 16px;"
+              data-es="Una puntuación agregada que resume la exposición a liquidaciones en los protocolos y redes monitorizadas."
+              data-en="An aggregate score that summarizes liquidation exposure across monitored protocols and networks."
+            >Una puntuación agregada que resume la exposición a liquidaciones en los protocolos y redes monitorizadas.</p>
           </div>
 
           <div class="risk-circle">
@@ -2060,9 +2094,9 @@
           </div>
 
           <div class="scale-row">
-            <span>0 High Risk</span>
-            <span>50 Moderate</span>
-            <span>100 Low Risk</span>
+            <span data-es="0 Alto riesgo" data-en="0 High risk">0 Alto riesgo</span>
+            <span data-es="50 Moderado" data-en="50 Moderate">50 Moderado</span>
+            <span data-es="100 Bajo riesgo" data-en="100 Low risk">100 Bajo riesgo</span>
           </div>
         </div>
       </div>
@@ -2071,37 +2105,55 @@
     <section class="container reveal">
       <div class="section-header">
         <div>
-          <p class="section-kicker">By the Numbers</p>
-          <h2 class="section-title">Infrastructure at Scale.</h2>
+          <p class="section-kicker" data-es="En números" data-en="By the numbers">En números</p>
+          <h2
+            class="section-title"
+            data-es="Infraestructura a escala."
+            data-en="Infrastructure at scale."
+          >Infraestructura a escala.</h2>
         </div>
-        <p class="section-description">
-          Built to monitor large-scale DeFi lending positions across multiple EVM chains and protocols.
-        </p>
+        <p
+          class="section-description"
+          data-es="Diseñado para seguir posiciones de préstamos DeFi a gran escala en varias redes EVM."
+          data-en="Built to monitor large-scale DeFi lending positions across multiple EVM networks."
+        >Diseñado para seguir posiciones de préstamos DeFi a gran escala en varias redes EVM.</p>
       </div>
 
       <div class="numbers-grid">
         <article class="card number-card">
           <strong>280K+</strong>
-          <h3>Active Positions Tracked</h3>
-          <p>Aave V3 and Compound V3 borrowing positions monitored across chains.</p>
+          <h3 data-es="Posiciones activas" data-en="Active positions">Posiciones activas</h3>
+          <p
+            data-es="Préstamos monitorizados en Aave V3 y Compound V3."
+            data-en="Loans monitored across Aave V3 and Compound V3."
+          >Préstamos monitorizados en Aave V3 y Compound V3.</p>
         </article>
 
         <article class="card number-card">
           <strong>220K+</strong>
           <h3>Queries / 30 Days</h3>
-          <p>Usage across deployed subgraphs and monitoring infrastructure.</p>
+          <p
+            data-es="Uso reciente de los subgraphs y la infraestructura de monitorización."
+            data-en="Recent usage across the subgraphs and monitoring infrastructure."
+          >Uso reciente de los subgraphs y la infraestructura de monitorización.</p>
         </article>
 
         <article class="card number-card">
           <strong>71K</strong>
-          <h3>GRT Signal Total</h3>
-          <p>Curation signal across the deployed subgraph ecosystem.</p>
+          <h3>GRT Signal</h3>
+          <p
+            data-es="Señal de curación acumulada en el ecosistema de subgraphs."
+            data-en="Curation signal across the subgraph ecosystem."
+          >Señal de curación acumulada en el ecosistema de subgraphs.</p>
         </article>
 
         <article class="card number-card">
           <strong>5</strong>
-          <h3>Risk Levels</h3>
-          <p>Critical, Danger, Warning, Caution and Safe classifications.</p>
+          <h3 data-es="Niveles de riesgo" data-en="Risk levels">Niveles de riesgo</h3>
+          <p
+            data-es="Critical, Danger, Warning, Caution y Safe."
+            data-en="Critical, Danger, Warning, Caution and Safe."
+          >Critical, Danger, Warning, Caution y Safe.</p>
         </article>
       </div>
     </section>
@@ -2109,76 +2161,91 @@
     <section id="glossary" class="container reveal">
       <div class="section-header">
         <div>
-          <p class="section-kicker">Explained simply</p>
-          <h2 class="section-title">Key Concepts Without the Jargon.</h2>
+          <p class="section-kicker" data-es="Explicado simple" data-en="Explained simply">Explicado simple</p>
+          <h2
+            class="section-title"
+            data-es="Conceptos clave sin jerga."
+            data-en="Key concepts without jargon."
+          >Conceptos clave sin jerga.</h2>
         </div>
-        <p class="section-description">
-          A simple glossary for visitors who are not familiar with DeFi, blockchain or The Graph.
-        </p>
+        <p
+          class="section-description"
+          data-es="Un glosario rápido para personas que no están familiarizadas con DeFi, blockchain o The Graph."
+          data-en="A quick glossary for people who are not familiar with DeFi, blockchain or The Graph."
+        >Un glosario rápido para personas que no están familiarizadas con DeFi, blockchain o The Graph.</p>
       </div>
 
       <div class="glossary-grid">
         <article class="card glossary-card">
-          <h3>What is DeFi?</h3>
-          <p>
-            DeFi means decentralized finance. It refers to financial applications that run on blockchains instead of traditional banks.
-          </p>
+          <h3 data-es="¿Qué es DeFi?" data-en="What is DeFi?">¿Qué es DeFi?</h3>
+          <p
+            data-es="DeFi significa finanzas descentralizadas. Son aplicaciones financieras que funcionan en blockchain, sin depender de un banco tradicional."
+            data-en="DeFi means decentralized finance. It refers to financial applications that run on blockchains instead of traditional banks."
+          >DeFi significa finanzas descentralizadas. Son aplicaciones financieras que funcionan en blockchain, sin depender de un banco tradicional.</p>
         </article>
 
         <article class="card glossary-card">
-          <h3>What are Aave and Compound?</h3>
-          <p>
-            They are lending protocols. Users can deposit crypto, borrow crypto and earn or pay interest without a traditional intermediary.
-          </p>
+          <h3 data-es="¿Qué son Aave y Compound?" data-en="What are Aave and Compound?">¿Qué son Aave y Compound?</h3>
+          <p
+            data-es="Son protocolos de préstamo. Permiten depositar cripto, pedir cripto prestada y pagar o recibir intereses."
+            data-en="They are lending protocols. Users can deposit crypto, borrow crypto and earn or pay interest."
+          >Son protocolos de préstamo. Permiten depositar cripto, pedir cripto prestada y pagar o recibir intereses.</p>
         </article>
 
         <article class="card glossary-card">
-          <h3>What is collateral?</h3>
-          <p>
-            Collateral is the asset a borrower deposits to secure a loan. If the borrower becomes too risky, this collateral can be sold.
-          </p>
+          <h3 data-es="¿Qué es una garantía?" data-en="What is collateral?">¿Qué es una garantía?</h3>
+          <p
+            data-es="Es el activo que el usuario deposita para respaldar su préstamo. Si el préstamo se vuelve peligroso, esa garantía puede venderse."
+            data-en="Collateral is the asset a borrower deposits to secure a loan. If the loan becomes unsafe, that collateral can be sold."
+          >Es el activo que el usuario deposita para respaldar su préstamo. Si el préstamo se vuelve peligroso, esa garantía puede venderse.</p>
         </article>
 
         <article class="card glossary-card">
-          <h3>What is liquidation?</h3>
-          <p>
-            Liquidation happens when a borrowing position becomes unsafe. Part of the collateral is sold to repay the debt.
-          </p>
+          <h3 data-es="¿Qué es una liquidación?" data-en="What is liquidation?">¿Qué es una liquidación?</h3>
+          <p
+            data-es="Ocurre cuando una posición ya no es segura. Parte de la garantía se vende para pagar la deuda."
+            data-en="Liquidation happens when a position becomes unsafe. Part of the collateral is sold to repay the debt."
+          >Ocurre cuando una posición ya no es segura. Parte de la garantía se vende para pagar la deuda.</p>
         </article>
 
         <article class="card glossary-card">
-          <h3>What is health factor?</h3>
-          <p>
-            Health factor is a risk number. If it gets close to 1, the position is close to liquidation. Higher usually means safer.
-          </p>
+          <h3 data-es="¿Qué es el health factor?" data-en="What is health factor?">¿Qué es el health factor?</h3>
+          <p
+            data-es="Es una métrica de seguridad. Si se acerca a 1, la posición está cerca de liquidarse. Cuanto más alto, normalmente más segura."
+            data-en="It is a safety metric. If it gets close to 1, the position is close to liquidation. Higher usually means safer."
+          >Es una métrica de seguridad. Si se acerca a 1, la posición está cerca de liquidarse. Cuanto más alto, normalmente más segura.</p>
         </article>
 
         <article class="card glossary-card">
-          <h3>What is The Graph?</h3>
-          <p>
-            The Graph is a decentralized data network. It helps applications read blockchain data faster and more efficiently.
-          </p>
+          <h3 data-es="¿Qué es The Graph?" data-en="What is The Graph?">¿Qué es The Graph?</h3>
+          <p
+            data-es="Es una red de datos descentralizada que permite leer datos blockchain de forma más rápida y organizada."
+            data-en="The Graph is a decentralized data network that helps applications read blockchain data faster and more efficiently."
+          >Es una red de datos descentralizada que permite leer datos blockchain de forma más rápida y organizada.</p>
         </article>
 
         <article class="card glossary-card">
-          <h3>What is a subgraph?</h3>
-          <p>
-            A subgraph is like a custom API for blockchain data. It organizes raw blockchain events into information that apps can easily query.
-          </p>
+          <h3 data-es="¿Qué es un subgraph?" data-en="What is a subgraph?">¿Qué es un subgraph?</h3>
+          <p
+            data-es="Es como una API personalizada para datos blockchain. Convierte eventos complejos en datos que una app puede consultar fácilmente."
+            data-en="A subgraph is like a custom API for blockchain data. It turns complex events into information an app can query easily."
+          >Es como una API personalizada para datos blockchain. Convierte eventos complejos en datos que una app puede consultar fácilmente.</p>
         </article>
 
         <article class="card glossary-card">
-          <h3>What is GraphQL?</h3>
-          <p>
-            GraphQL is a query language. It lets developers ask for exactly the data they need, instead of downloading everything.
-          </p>
+          <h3 data-es="¿Qué es GraphQL?" data-en="What is GraphQL?">¿Qué es GraphQL?</h3>
+          <p
+            data-es="Es un lenguaje para pedir datos. Permite solicitar exactamente la información que necesitas."
+            data-en="GraphQL is a query language. It lets developers request exactly the data they need."
+          >Es un lenguaje para pedir datos. Permite solicitar exactamente la información que necesitas.</p>
         </article>
 
         <article class="card glossary-card">
-          <h3>What is cascade risk?</h3>
-          <p>
-            Cascade risk appears when many positions can be liquidated together. One price drop can trigger forced selling, which may push prices lower.
-          </p>
+          <h3 data-es="¿Qué es cascade risk?" data-en="What is cascade risk?">¿Qué es cascade risk?</h3>
+          <p
+            data-es="Es el riesgo de que muchas liquidaciones ocurran juntas. Una caída puede forzar ventas, y esas ventas pueden provocar más caídas."
+            data-en="Cascade risk appears when many liquidations can happen together. One drop can force selling, and that selling can trigger more drops."
+          >Es el riesgo de que muchas liquidaciones ocurran juntas. Una caída puede forzar ventas, y esas ventas pueden provocar más caídas.</p>
         </article>
       </div>
     </section>
@@ -2187,28 +2254,52 @@
       <div class="section-header">
         <div>
           <p class="section-kicker">GraphQL API</p>
-          <h2 class="section-title">Start Querying in Seconds.</h2>
+          <h2
+            class="section-title"
+            data-es="Consulta datos en segundos."
+            data-en="Start querying in seconds."
+          >Consulta datos en segundos.</h2>
         </div>
-        <p class="section-description">
-          Fetch at-risk positions directly through The Graph Network.
-        </p>
+        <p
+          class="section-description"
+          data-es="Los subgraphs permiten consultar posiciones de riesgo directamente desde The Graph."
+          data-en="The subgraphs allow querying at-risk positions directly through The Graph."
+        >Los subgraphs permiten consultar posiciones de riesgo directamente desde The Graph.</p>
       </div>
 
       <div class="card api-card">
         <div>
-          <p class="section-kicker">Composable Data</p>
-          <h3 class="section-title" style="font-size: 2.7rem;">Open risk intelligence for DeFi builders.</h3>
-          <p class="section-description" style="margin-top: 18px;">
-            Use live liquidation data to power dashboards, bots, research tools, alerts or institutional monitoring systems.
-          </p>
+          <p class="section-kicker" data-es="Datos reutilizables" data-en="Composable data">Datos reutilizables</p>
+          <h3
+            class="section-title"
+            style="font-size: 2.7rem;"
+            data-es="Inteligencia de riesgo abierta para builders DeFi."
+            data-en="Open risk intelligence for DeFi builders."
+          >Inteligencia de riesgo abierta para builders DeFi.</h3>
+          <p
+            class="section-description"
+            style="margin-top: 18px;"
+            data-es="Usa datos de liquidación para crear dashboards, bots, herramientas de análisis, alertas o sistemas de monitorización."
+            data-en="Use liquidation data to power dashboards, bots, research tools, alerts or monitoring systems."
+          >Usa datos de liquidación para crear dashboards, bots, herramientas de análisis, alertas o sistemas de monitorización.</p>
 
           <div class="hero-buttons" style="margin-top: 28px;">
-            <a class="btn btn-primary" href="https://thegraph.com/explorer" target="_blank" rel="noopener">
-              Open The Graph Explorer →
-            </a>
-            <a class="btn btn-secondary" href="https://web-production-387cf.up.railway.app" target="_blank" rel="noopener">
-              Open Dashboard
-            </a>
+            <a
+              class="btn btn-primary"
+              href="https://thegraph.com/explorer/subgraphs/AQhBTEUat8EKFz7sntqTo3fMYusJ3BbQbi4uGiwT5oD3?chain=arbitrum-one&view=Query"
+              target="_blank"
+              rel="noopener"
+              data-es="Abrir query principal →"
+              data-en="Open main query →"
+            >Abrir query principal →</a>
+            <a
+              class="btn btn-secondary"
+              href="https://web-production-387cf.up.railway.app"
+              target="_blank"
+              rel="noopener"
+              data-es="Abrir dashboard"
+              data-en="Open dashboard"
+            >Abrir dashboard</a>
           </div>
         </div>
 
@@ -2246,19 +2337,30 @@ query CriticalPositions {
     <section class="container cta-section reveal">
       <div class="cta-panel">
         <p class="section-kicker">DeFi Risk Monitor</p>
-        <h2>Understand DeFi Risk Before It Becomes Visible.</h2>
-        <p>
-          DeFi Risk Monitor transforms complex lending data into simple risk levels, dashboards and alerts.
-          Whether you are a trader, researcher or protocol team, the goal is the same: detect liquidation pressure before it spreads.
-        </p>
+        <h2
+          data-es="Entiende el riesgo DeFi antes de que sea evidente."
+          data-en="Understand DeFi risk before it becomes visible."
+        >Entiende el riesgo DeFi antes de que sea evidente.</h2>
+        <p
+          data-es="DeFi Risk Monitor transforma datos complejos de préstamos en niveles de riesgo, dashboards y alertas. El objetivo es detectar presión de liquidación antes de que se extienda."
+          data-en="DeFi Risk Monitor transforms complex lending data into risk levels, dashboards and alerts. The goal is to detect liquidation pressure before it spreads."
+        >DeFi Risk Monitor transforma datos complejos de préstamos en niveles de riesgo, dashboards y alertas. El objetivo es detectar presión de liquidación antes de que se extienda.</p>
 
         <div class="hero-buttons" style="justify-content: center; margin-bottom: 0;">
-          <a class="btn btn-primary" href="https://web-production-387cf.up.railway.app" target="_blank" rel="noopener">
-            Open Dashboard
-          </a>
-          <a class="btn btn-secondary" href="https://thegraph.com/explorer" target="_blank" rel="noopener">
-            Open The Graph Explorer →
-          </a>
+          <a
+            class="btn btn-primary"
+            href="https://web-production-387cf.up.railway.app"
+            target="_blank"
+            rel="noopener"
+            data-es="Abrir dashboard"
+            data-en="Open dashboard"
+          >Abrir dashboard</a>
+          <a
+            class="btn btn-secondary"
+            href="#subgraphs"
+            data-es="Ver subgraphs →"
+            data-en="View subgraphs →"
+          >Ver subgraphs →</a>
         </div>
       </div>
     </section>
@@ -2271,21 +2373,27 @@ query CriticalPositions {
           <span class="brand-logo">DR</span>
           <span>DeFi Risk Monitor</span>
         </div>
-        <p>
-          Real-time liquidation risk for Aave V3 and Compound V3 across five EVM chains.
-          Powered by The Graph.
-        </p>
+        <p
+          data-es="Riesgo de liquidación en tiempo real para Aave V3 y Compound V3 en varias redes EVM. Powered by The Graph."
+          data-en="Real-time liquidation risk for Aave V3 and Compound V3 across several EVM networks. Powered by The Graph."
+        >Riesgo de liquidación en tiempo real para Aave V3 y Compound V3 en varias redes EVM. Powered by The Graph.</p>
         <p style="margin-top: 16px;">© 2026 DeFi Risk Monitor. All rights reserved.</p>
       </div>
 
       <div class="footer-links">
-        <a href="#problem">Problem</a>
-        <a href="#how">How it works</a>
+        <a href="#problem" data-es="Problema" data-en="Problem">Problema</a>
+        <a href="#how" data-es="Cómo funciona" data-en="How it works">Cómo funciona</a>
         <a href="#subgraphs">Subgraphs</a>
-        <a href="#features">Features</a>
-        <a href="#risk">Risk Levels</a>
-        <a href="#glossary">Glossary</a>
-        <a href="https://web-production-387cf.up.railway.app" target="_blank" rel="noopener">Dashboard</a>
+        <a href="#features" data-es="Funciones" data-en="Features">Funciones</a>
+        <a href="#risk" data-es="Riesgo" data-en="Risk">Riesgo</a>
+        <a href="#glossary" data-es="Glosario" data-en="Glossary">Glosario</a>
+        <a
+          href="https://web-production-387cf.up.railway.app"
+          target="_blank"
+          rel="noopener"
+          data-es="Dashboard"
+          data-en="Dashboard"
+        >Dashboard</a>
       </div>
     </div>
   </footer>
@@ -2308,23 +2416,33 @@ query CriticalPositions {
       revealObserver.observe(element);
     });
 
-    function openSubgraphSearch(subgraphName) {
-      const searchUrl = "https://thegraph.com/explorer?search=" + encodeURIComponent(subgraphName);
-      window.open(searchUrl, "_blank", "noopener,noreferrer");
+    let currentLanguage = "es";
+    const languageToggle = document.getElementById("languageToggle");
+
+    function applyLanguage(language) {
+      currentLanguage = language;
+      document.documentElement.lang = language;
+
+      document.querySelectorAll("[data-es][data-en]").forEach((element) => {
+        element.textContent = element.dataset[language];
+      });
+
+      if (languageToggle) {
+        languageToggle.textContent = language === "es" ? "EN" : "ES";
+        languageToggle.setAttribute(
+          "aria-label",
+          language === "es" ? "Switch to English" : "Cambiar a español"
+        );
+      }
     }
 
-    document.querySelectorAll(".js-subgraph").forEach((card) => {
-      card.addEventListener("click", () => {
-        openSubgraphSearch(card.dataset.subgraph);
+    if (languageToggle) {
+      languageToggle.addEventListener("click", () => {
+        applyLanguage(currentLanguage === "es" ? "en" : "es");
       });
+    }
 
-      card.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          openSubgraphSearch(card.dataset.subgraph);
-        }
-      });
-    });
+    applyLanguage("es");
   </script>
 </body>
 </html>
