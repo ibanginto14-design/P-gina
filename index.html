@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DeFi Risk Monitor — Aave & Compound Liquidation Risk</title>
+
+  <title>DeFi Risk Monitor — Real-Time Liquidation Risk</title>
 
   <meta
     name="description"
-    content="Real-time liquidation risk monitor for Aave V3 and Compound V3 across Ethereum, Arbitrum, Base, Optimism and Polygon. Powered by The Graph."
+    content="DeFi Risk Monitor tracks liquidation risk across Aave V3 and Compound V3 using The Graph. Simple dashboards, alerts and explanations for technical and non-technical users."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -95,6 +96,7 @@
       from {
         transform: translate3d(0, 0, 0) scale(1);
       }
+
       to {
         transform: translate3d(-40px, 46px, 0) scale(1.12);
       }
@@ -131,11 +133,12 @@
       justify-content: center;
       gap: 10px;
       text-align: center;
+      padding: 0 16px;
     }
 
     .top-banner a {
       color: white;
-      font-weight: 700;
+      font-weight: 800;
       text-decoration: underline;
       text-underline-offset: 4px;
     }
@@ -184,7 +187,7 @@
       align-items: center;
       gap: 28px;
       color: var(--text-muted);
-      font-weight: 600;
+      font-weight: 700;
       font-size: 0.95rem;
     }
 
@@ -207,7 +210,7 @@
       border-radius: 999px;
       border: 1px solid rgba(255, 255, 255, 0.12);
       color: var(--text-muted);
-      font-weight: 700;
+      font-weight: 800;
       font-size: 0.88rem;
       background: rgba(255, 255, 255, 0.04);
     }
@@ -293,7 +296,7 @@
       border: 1px solid rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(14px);
       font-size: 0.92rem;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 24px;
     }
 
@@ -310,9 +313,11 @@
       0% {
         box-shadow: 0 0 0 0 rgba(20, 241, 149, 0.7);
       }
+
       70% {
         box-shadow: 0 0 0 12px rgba(20, 241, 149, 0);
       }
+
       100% {
         box-shadow: 0 0 0 0 rgba(20, 241, 149, 0);
       }
@@ -337,7 +342,33 @@
       color: var(--text-muted);
       font-size: 1.15rem;
       line-height: 1.78;
+      margin-bottom: 24px;
+    }
+
+    .simple-explainer {
+      max-width: 660px;
       margin-bottom: 34px;
+      padding: 18px 20px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(16px);
+    }
+
+    .simple-explainer span {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--accent-3);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .simple-explainer p {
+      color: var(--text-muted);
+      line-height: 1.65;
+      font-size: 0.95rem;
     }
 
     .hero-buttons {
@@ -373,7 +404,7 @@
     .mini-stat span {
       color: var(--text-muted);
       font-size: 0.78rem;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
@@ -430,6 +461,7 @@
       0%, 100% {
         transform: translateY(0) rotate(0deg);
       }
+
       50% {
         transform: translateY(-16px) rotate(1deg);
       }
@@ -490,7 +522,7 @@
       display: block;
       color: var(--text-muted);
       font-size: 0.8rem;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .float-chip.one {
@@ -521,6 +553,7 @@
       0%, 100% {
         transform: translateY(0);
       }
+
       50% {
         transform: translateY(-13px);
       }
@@ -592,7 +625,7 @@
     }
 
     .section-description {
-      max-width: 440px;
+      max-width: 470px;
       color: var(--text-muted);
       line-height: 1.7;
       font-size: 1rem;
@@ -630,12 +663,6 @@
       to {
         transform: translateX(-50%);
       }
-    }
-
-    .subgraph-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
     }
 
     .card {
@@ -678,11 +705,143 @@
       z-index: 2;
     }
 
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .problem-card-large {
+      min-height: 100%;
+    }
+
+    .problem-card-large h3 {
+      font-size: clamp(2rem, 4vw, 3.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.08em;
+      margin-bottom: 20px;
+    }
+
+    .problem-card-large p {
+      color: var(--text-muted);
+      line-height: 1.75;
+      font-size: 1.02rem;
+      margin-bottom: 18px;
+    }
+
+    .warning-note {
+      margin-top: 22px;
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(250, 204, 21, 0.08);
+      border: 1px solid rgba(250, 204, 21, 0.22);
+      color: #f8e8a0;
+      line-height: 1.65;
+      font-size: 0.95rem;
+    }
+
+    .explanation-stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .explanation-item {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.052);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .explanation-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, rgba(139, 92, 246, 0.85), rgba(34, 211, 238, 0.65));
+      font-weight: 900;
+    }
+
+    .explanation-item h4 {
+      font-size: 1.04rem;
+      margin-bottom: 7px;
+      letter-spacing: -0.03em;
+    }
+
+    .explanation-item p {
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-size: 0.94rem;
+    }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .flow-card {
+      position: relative;
+      min-height: 245px;
+    }
+
+    .flow-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      letter-spacing: -0.04em;
+    }
+
+    .flow-card p {
+      color: var(--text-muted);
+      line-height: 1.65;
+      font-size: 0.94rem;
+    }
+
+    .flow-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      background: rgba(255, 255, 255, 0.075);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      font-size: 1.45rem;
+    }
+
+    .flow-arrow {
+      position: absolute;
+      top: 50%;
+      right: -18px;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(139, 92, 246, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      z-index: 3;
+      font-weight: 900;
+    }
+
+    .subgraph-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
     .subgraph-card {
-      min-height: 206px;
+      min-height: 230px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      cursor: pointer;
     }
 
     .card-top {
@@ -733,6 +892,13 @@
       font-size: 0.94rem;
     }
 
+    .open-note {
+      margin-top: 16px;
+      color: #dce5ff;
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
     .tag-row {
       display: flex;
       gap: 8px;
@@ -781,16 +947,31 @@
       font-size: 1.35rem;
     }
 
-    .feature-card h3 {
+    .feature-card h3,
+    .audience-card h3,
+    .glossary-card h3 {
       font-size: 1.28rem;
       letter-spacing: -0.04em;
       margin-bottom: 13px;
     }
 
-    .feature-card p {
+    .feature-card p,
+    .audience-card p,
+    .glossary-card p {
       color: var(--text-muted);
       line-height: 1.68;
       font-size: 0.95rem;
+    }
+
+    .audience-grid,
+    .glossary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .audience-card {
+      min-height: 240px;
     }
 
     .risk-layout {
@@ -1011,7 +1192,7 @@
 
     .cta-panel p {
       color: var(--text-muted);
-      max-width: 640px;
+      max-width: 700px;
       margin: 0 auto 32px;
       line-height: 1.75;
       font-size: 1.05rem;
@@ -1036,7 +1217,7 @@
       display: flex;
       gap: 18px;
       flex-wrap: wrap;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .footer-links a:hover {
@@ -1069,8 +1250,16 @@
       }
 
       .subgraph-grid,
-      .features-grid {
+      .features-grid,
+      .problem-grid,
+      .flow-grid,
+      .audience-grid,
+      .glossary-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .flow-arrow {
+        display: none;
       }
 
       .risk-layout,
@@ -1090,14 +1279,15 @@
 
       .top-banner-inner {
         font-size: 0.78rem;
-        padding: 0 12px;
+        padding: 8px 12px;
       }
 
       .nav-inner {
         height: 70px;
       }
 
-      .nav-actions .btn-secondary {
+      .nav-actions .btn-secondary,
+      .lang-pill {
         display: none;
       }
 
@@ -1185,7 +1375,15 @@
 
       .subgraph-grid,
       .features-grid,
+      .problem-grid,
+      .flow-grid,
+      .audience-grid,
+      .glossary-grid,
       .numbers-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .explanation-item {
         grid-template-columns: 1fr;
       }
 
@@ -1215,7 +1413,9 @@
   <div class="top-banner">
     <div class="top-banner-inner">
       <span>New: Cascade Risk Alert simulates liquidation impact across 280,000+ positions.</span>
-      <a href="https://web-production-387cf.up.railway.app" target="_blank" rel="noopener">View Live Dashboard →</a>
+      <a href="https://web-production-387cf.up.railway.app" target="_blank" rel="noopener">
+        View Live Dashboard →
+      </a>
     </div>
   </div>
 
@@ -1227,15 +1427,19 @@
       </a>
 
       <nav class="nav-links" aria-label="Main navigation">
+        <a href="#problem">Problem</a>
+        <a href="#how">How it works</a>
         <a href="#subgraphs">Subgraphs</a>
         <a href="#features">Features</a>
         <a href="#risk">Risk Levels</a>
-        <a href="#api">Query API</a>
+        <a href="#glossary">Glossary</a>
       </nav>
 
       <div class="nav-actions">
-        <a class="lang-pill" href="#">Español</a>
-        <a class="btn btn-secondary" href="https://thegraph.com" target="_blank" rel="noopener">The Graph</a>
+        <a class="lang-pill" href="#glossary">Simple Guide</a>
+        <a class="btn btn-secondary" href="https://thegraph.com/explorer" target="_blank" rel="noopener">
+          The Graph
+        </a>
         <a class="btn btn-primary" href="https://web-production-387cf.up.railway.app" target="_blank" rel="noopener">
           Live Dashboard
         </a>
@@ -1258,13 +1462,21 @@
         </h1>
 
         <p class="hero-description">
-          Monitor every borrowing position across Ethereum, Arbitrum, Base, Optimism and Polygon.
-          Five risk levels, a global DeFi Risk Index and instant cascade simulation alerts for Aave V3
-          and Compound V3.
+          DeFi Risk Monitor watches thousands of lending positions in real time and detects which users,
+          protocols or markets are close to liquidation. In simple terms: it helps you see where the next
+          wave of forced selling could appear before it happens.
         </p>
 
+        <div class="simple-explainer">
+          <span>Simple explanation</span>
+          <p>
+            When someone borrows in DeFi, they must deposit collateral. If the collateral value falls too much,
+            the position can be liquidated. This dashboard tracks that risk across several chains.
+          </p>
+        </div>
+
         <div class="hero-buttons">
-          <a class="btn btn-primary" href="#subgraphs">Explore Subgraphs</a>
+          <a class="btn btn-primary" href="#problem">Understand the Problem</a>
           <a class="btn btn-secondary" href="https://web-production-387cf.up.railway.app" target="_blank" rel="noopener">
             View Live Dashboard →
           </a>
@@ -1361,6 +1573,135 @@
       </div>
     </section>
 
+    <section id="problem" class="container reveal">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">For everyone</p>
+          <h2 class="section-title">What Problem Does This Solve?</h2>
+        </div>
+        <p class="section-description">
+          You do not need to be a DeFi expert to understand the core idea: this tool tracks where borrowing positions are becoming dangerous.
+        </p>
+      </div>
+
+      <div class="problem-grid">
+        <article class="card problem-card-large">
+          <p class="section-kicker">Simple explanation</p>
+          <h3>DeFi liquidations can move markets fast.</h3>
+
+          <p>
+            In DeFi lending platforms such as Aave or Compound, users can borrow assets by depositing collateral.
+            For example, someone may deposit ETH and borrow stablecoins.
+          </p>
+
+          <p>
+            If the value of their collateral falls too much, the protocol can automatically liquidate the position.
+            That means the collateral is sold to repay the debt.
+          </p>
+
+          <p>
+            When many positions are close to liquidation at the same time, a price movement can trigger a chain reaction.
+            DeFi Risk Monitor is designed to detect those vulnerable areas before they become a bigger problem.
+          </p>
+
+          <div class="warning-note">
+            This is not financial advice. The tool provides risk data and monitoring, but it does not tell users what to buy or sell.
+          </div>
+        </article>
+
+        <div class="explanation-stack">
+          <div class="explanation-item">
+            <div class="explanation-number">1</div>
+            <div>
+              <h4>People borrow using collateral</h4>
+              <p>
+                A user deposits crypto, such as ETH, and borrows another asset. The deposited crypto protects the lender.
+              </p>
+            </div>
+          </div>
+
+          <div class="explanation-item">
+            <div class="explanation-number">2</div>
+            <div>
+              <h4>The collateral value can fall</h4>
+              <p>
+                If the market drops, the value of the user’s collateral may no longer be enough to safely cover the loan.
+              </p>
+            </div>
+          </div>
+
+          <div class="explanation-item">
+            <div class="explanation-number">3</div>
+            <div>
+              <h4>The position becomes risky</h4>
+              <p>
+                The protocol calculates a number called health factor. The lower it gets, the closer the position is to liquidation.
+              </p>
+            </div>
+          </div>
+
+          <div class="explanation-item">
+            <div class="explanation-number">4</div>
+            <div>
+              <h4>Liquidation can happen automatically</h4>
+              <p>
+                If the position becomes unsafe, the protocol allows liquidators to repay the debt and sell part of the collateral.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="container reveal">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">How it works</p>
+          <h2 class="section-title">From Blockchain Data to Risk Alerts.</h2>
+        </div>
+        <p class="section-description">
+          The tool turns complex on-chain lending data into simple risk levels, dashboards and alerts.
+        </p>
+      </div>
+
+      <div class="flow-grid">
+        <article class="card flow-card">
+          <div class="flow-icon">🏦</div>
+          <h3>1. Lending Protocols</h3>
+          <p>
+            Aave and Compound contain thousands of borrowing positions. Each position has collateral, debt and a liquidation threshold.
+          </p>
+          <div class="flow-arrow">→</div>
+        </article>
+
+        <article class="card flow-card">
+          <div class="flow-icon">🔗</div>
+          <h3>2. Blockchain Networks</h3>
+          <p>
+            Those positions live on networks such as Ethereum, Arbitrum, Base, Polygon and Optimism.
+          </p>
+          <div class="flow-arrow">→</div>
+        </article>
+
+        <article class="card flow-card">
+          <div class="flow-icon">🧠</div>
+          <h3>3. Risk Engine</h3>
+          <p>
+            The system reads position data, calculates risk levels and identifies accounts that are close to liquidation.
+          </p>
+          <div class="flow-arrow">→</div>
+        </article>
+
+        <article class="card flow-card">
+          <div class="flow-icon">🚨</div>
+          <h3>4. Dashboard & Alerts</h3>
+          <p>
+            The information becomes a dashboard, Telegram alerts, Discord notifications and weekly reports.
+          </p>
+        </article>
+      </div>
+    </section>
+
     <section id="subgraphs" class="container reveal">
       <div class="section-header">
         <div>
@@ -1368,12 +1709,18 @@
           <h2 class="section-title">Deployed Subgraphs.</h2>
         </div>
         <p class="section-description">
-          Six production subgraphs on The Graph Network. Click any card to open the explorer.
+          Six production subgraphs on The Graph Network. Click any card to search it safely in The Graph Explorer.
         </p>
       </div>
 
       <div class="subgraph-grid">
-        <a class="card subgraph-card" href="https://thegraph.com/explorer" target="_blank" rel="noopener">
+        <article
+          class="card subgraph-card js-subgraph"
+          data-subgraph="aave-liquidation-risk"
+          tabindex="0"
+          role="button"
+          aria-label="Open aave-liquidation-risk in The Graph Explorer"
+        >
           <div>
             <div class="card-top">
               <div class="chain-badge"><span class="chain-icon">ETH</span> Ethereum</div>
@@ -1381,15 +1728,22 @@
             </div>
             <h3>aave-liquidation-risk</h3>
             <p>Aave V3 lending positions, health factors and liquidation risk on Ethereum.</p>
+            <p class="open-note">Open in The Graph Explorer →</p>
           </div>
           <div class="tag-row">
             <span class="tag">Aave V3</span>
             <span class="tag">Lending</span>
             <span class="tag">DeFi</span>
           </div>
-        </a>
+        </article>
 
-        <a class="card subgraph-card" href="https://thegraph.com/explorer" target="_blank" rel="noopener">
+        <article
+          class="card subgraph-card js-subgraph"
+          data-subgraph="aave-liquidation-risk-arbitrum"
+          tabindex="0"
+          role="button"
+          aria-label="Open aave-liquidation-risk-arbitrum in The Graph Explorer"
+        >
           <div>
             <div class="card-top">
               <div class="chain-badge"><span class="chain-icon">ARB</span> Arbitrum</div>
@@ -1397,15 +1751,22 @@
             </div>
             <h3>aave-liquidation-risk-arbitrum</h3>
             <p>Real-time position risk and protocol stats for Aave V3 on Arbitrum.</p>
+            <p class="open-note">Open in The Graph Explorer →</p>
           </div>
           <div class="tag-row">
             <span class="tag">Aave V3</span>
             <span class="tag">Layer 2</span>
             <span class="tag">Risk</span>
           </div>
-        </a>
+        </article>
 
-        <a class="card subgraph-card" href="https://thegraph.com/explorer" target="_blank" rel="noopener">
+        <article
+          class="card subgraph-card js-subgraph"
+          data-subgraph="aave-liquidation-risk-base"
+          tabindex="0"
+          role="button"
+          aria-label="Open aave-liquidation-risk-base in The Graph Explorer"
+        >
           <div>
             <div class="card-top">
               <div class="chain-badge"><span class="chain-icon">B</span> Base</div>
@@ -1413,15 +1774,22 @@
             </div>
             <h3>aave-liquidation-risk-base</h3>
             <p>Liquidation risk intelligence for Aave V3 positions deployed on Base.</p>
+            <p class="open-note">Open in The Graph Explorer →</p>
           </div>
           <div class="tag-row">
             <span class="tag">Aave V3</span>
             <span class="tag">Base</span>
             <span class="tag">Monitoring</span>
           </div>
-        </a>
+        </article>
 
-        <a class="card subgraph-card" href="https://thegraph.com/explorer" target="_blank" rel="noopener">
+        <article
+          class="card subgraph-card js-subgraph"
+          data-subgraph="aave-liquidation-risk-polygon"
+          tabindex="0"
+          role="button"
+          aria-label="Open aave-liquidation-risk-polygon in The Graph Explorer"
+        >
           <div>
             <div class="card-top">
               <div class="chain-badge"><span class="chain-icon">POL</span> Polygon</div>
@@ -1429,15 +1797,22 @@
             </div>
             <h3>aave-liquidation-risk-polygon</h3>
             <p>Multi-chain Aave V3 liquidation tracking and health factor snapshots.</p>
+            <p class="open-note">Open in The Graph Explorer →</p>
           </div>
           <div class="tag-row">
             <span class="tag">Aave V3</span>
             <span class="tag">Polygon</span>
             <span class="tag">Snapshots</span>
           </div>
-        </a>
+        </article>
 
-        <a class="card subgraph-card" href="https://thegraph.com/explorer" target="_blank" rel="noopener">
+        <article
+          class="card subgraph-card js-subgraph"
+          data-subgraph="aave-liquidation-risk-optimism"
+          tabindex="0"
+          role="button"
+          aria-label="Open aave-liquidation-risk-optimism in The Graph Explorer"
+        >
           <div>
             <div class="card-top">
               <div class="chain-badge"><span class="chain-icon">OP</span> Optimism</div>
@@ -1445,15 +1820,22 @@
             </div>
             <h3>aave-liquidation-risk-optimism</h3>
             <p>Optimism-based Aave V3 position monitoring and liquidation classification.</p>
+            <p class="open-note">Open in The Graph Explorer →</p>
           </div>
           <div class="tag-row">
             <span class="tag">Aave V3</span>
             <span class="tag">Optimism</span>
             <span class="tag">Alerts</span>
           </div>
-        </a>
+        </article>
 
-        <a class="card subgraph-card" href="https://thegraph.com/explorer" target="_blank" rel="noopener">
+        <article
+          class="card subgraph-card js-subgraph"
+          data-subgraph="compound-v3-liquidation-risk"
+          tabindex="0"
+          role="button"
+          aria-label="Open compound-v3-liquidation-risk in The Graph Explorer"
+        >
           <div>
             <div class="card-top">
               <div class="chain-badge"><span class="chain-icon">C</span> Compound</div>
@@ -1461,13 +1843,14 @@
             </div>
             <h3>compound-v3-liquidation-risk</h3>
             <p>Compound V3 entity types, collateral positions and liquidation risk monitoring.</p>
+            <p class="open-note">Open in The Graph Explorer →</p>
           </div>
           <div class="tag-row">
             <span class="tag">Compound V3</span>
             <span class="tag">Entity Types</span>
             <span class="tag">Live</span>
           </div>
-        </a>
+        </article>
       </div>
     </section>
 
@@ -1478,7 +1861,7 @@
           <h2 class="section-title">Built Around the Subgraphs.</h2>
         </div>
         <p class="section-description">
-          A full monitoring stack delivering risk intelligence across multiple channels, powered entirely by on-chain data.
+          A full monitoring stack delivering risk intelligence across multiple channels, powered by on-chain data.
         </p>
       </div>
 
@@ -1488,7 +1871,7 @@
           <div class="feature-icon">⚡</div>
           <h3>Cascade Risk Alert</h3>
           <p>
-            Simulates market impact before it happens. Models liquidation cascades to detect systemic DeFi risk before prices move.
+            Simulates market impact before it happens. It helps detect whether many liquidations could occur together.
           </p>
           <div class="tag-row">
             <span class="tag">Simulation</span>
@@ -1502,7 +1885,7 @@
           <div class="feature-icon">📊</div>
           <h3>Web Dashboard</h3>
           <p>
-            Live dashboard showing position health, risk distribution and the global DeFi Risk Index from 0 to 100.
+            A visual dashboard showing position health, risk distribution and the global DeFi Risk Index from 0 to 100.
           </p>
           <div class="tag-row">
             <span class="tag">Dashboard</span>
@@ -1516,7 +1899,7 @@
           <div class="feature-icon">🚨</div>
           <h3>Telegram Bot</h3>
           <p>
-            Instant push notifications for CRITICAL and DANGER positions the moment they enter liquidation territory.
+            Instant notifications for CRITICAL and DANGER positions the moment they enter liquidation territory.
           </p>
           <div class="tag-row">
             <span class="tag">Push Alerts</span>
@@ -1564,6 +1947,56 @@
             <span class="tag">GraphQL</span>
             <span class="tag">Composable</span>
             <span class="tag">Open Data</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container reveal">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Use cases</p>
+          <h2 class="section-title">Who Can Use This?</h2>
+        </div>
+        <p class="section-description">
+          The same data can be useful for traders, analysts, DeFi teams, researchers and risk managers.
+        </p>
+      </div>
+
+      <div class="audience-grid">
+        <article class="card audience-card">
+          <div class="feature-icon">📈</div>
+          <h3>Traders</h3>
+          <p>
+            Traders can monitor where forced selling may appear and understand whether the market is entering a higher-risk environment.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Market Risk</span>
+            <span class="tag">Volatility</span>
+          </div>
+        </article>
+
+        <article class="card audience-card">
+          <div class="feature-icon">🏛️</div>
+          <h3>Protocols & DAOs</h3>
+          <p>
+            DeFi teams can track protocol-wide liquidation exposure and detect whether their users are becoming more vulnerable.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Protocol Health</span>
+            <span class="tag">Risk Monitoring</span>
+          </div>
+        </article>
+
+        <article class="card audience-card">
+          <div class="feature-icon">🧪</div>
+          <h3>Researchers</h3>
+          <p>
+            Analysts can use the data to study leverage, collateral behavior, liquidation patterns and systemic risk in DeFi lending.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Research</span>
+            <span class="tag">On-chain Data</span>
           </div>
         </article>
       </div>
@@ -1673,6 +2106,83 @@
       </div>
     </section>
 
+    <section id="glossary" class="container reveal">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Explained simply</p>
+          <h2 class="section-title">Key Concepts Without the Jargon.</h2>
+        </div>
+        <p class="section-description">
+          A simple glossary for visitors who are not familiar with DeFi, blockchain or The Graph.
+        </p>
+      </div>
+
+      <div class="glossary-grid">
+        <article class="card glossary-card">
+          <h3>What is DeFi?</h3>
+          <p>
+            DeFi means decentralized finance. It refers to financial applications that run on blockchains instead of traditional banks.
+          </p>
+        </article>
+
+        <article class="card glossary-card">
+          <h3>What are Aave and Compound?</h3>
+          <p>
+            They are lending protocols. Users can deposit crypto, borrow crypto and earn or pay interest without a traditional intermediary.
+          </p>
+        </article>
+
+        <article class="card glossary-card">
+          <h3>What is collateral?</h3>
+          <p>
+            Collateral is the asset a borrower deposits to secure a loan. If the borrower becomes too risky, this collateral can be sold.
+          </p>
+        </article>
+
+        <article class="card glossary-card">
+          <h3>What is liquidation?</h3>
+          <p>
+            Liquidation happens when a borrowing position becomes unsafe. Part of the collateral is sold to repay the debt.
+          </p>
+        </article>
+
+        <article class="card glossary-card">
+          <h3>What is health factor?</h3>
+          <p>
+            Health factor is a risk number. If it gets close to 1, the position is close to liquidation. Higher usually means safer.
+          </p>
+        </article>
+
+        <article class="card glossary-card">
+          <h3>What is The Graph?</h3>
+          <p>
+            The Graph is a decentralized data network. It helps applications read blockchain data faster and more efficiently.
+          </p>
+        </article>
+
+        <article class="card glossary-card">
+          <h3>What is a subgraph?</h3>
+          <p>
+            A subgraph is like a custom API for blockchain data. It organizes raw blockchain events into information that apps can easily query.
+          </p>
+        </article>
+
+        <article class="card glossary-card">
+          <h3>What is GraphQL?</h3>
+          <p>
+            GraphQL is a query language. It lets developers ask for exactly the data they need, instead of downloading everything.
+          </p>
+        </article>
+
+        <article class="card glossary-card">
+          <h3>What is cascade risk?</h3>
+          <p>
+            Cascade risk appears when many positions can be liquidated together. One price drop can trigger forced selling, which may push prices lower.
+          </p>
+        </article>
+      </div>
+    </section>
+
     <section id="api" class="container reveal">
       <div class="section-header">
         <div>
@@ -1694,7 +2204,7 @@
 
           <div class="hero-buttons" style="margin-top: 28px;">
             <a class="btn btn-primary" href="https://thegraph.com/explorer" target="_blank" rel="noopener">
-              View Subgraphs →
+              Open The Graph Explorer →
             </a>
             <a class="btn btn-secondary" href="https://web-production-387cf.up.railway.app" target="_blank" rel="noopener">
               Open Dashboard
@@ -1736,9 +2246,10 @@ query CriticalPositions {
     <section class="container cta-section reveal">
       <div class="cta-panel">
         <p class="section-kicker">DeFi Risk Monitor</p>
-        <h2>Stay Ahead of Liquidations.</h2>
+        <h2>Understand DeFi Risk Before It Becomes Visible.</h2>
         <p>
-          Track 280,000+ positions in real time. Get alerted before the market moves and query liquidation risk through a composable Web3 data layer.
+          DeFi Risk Monitor transforms complex lending data into simple risk levels, dashboards and alerts.
+          Whether you are a trader, researcher or protocol team, the goal is the same: detect liquidation pressure before it spreads.
         </p>
 
         <div class="hero-buttons" style="justify-content: center; margin-bottom: 0;">
@@ -1746,7 +2257,7 @@ query CriticalPositions {
             Open Dashboard
           </a>
           <a class="btn btn-secondary" href="https://thegraph.com/explorer" target="_blank" rel="noopener">
-            View Subgraphs →
+            Open The Graph Explorer →
           </a>
         </div>
       </div>
@@ -1768,11 +2279,12 @@ query CriticalPositions {
       </div>
 
       <div class="footer-links">
+        <a href="#problem">Problem</a>
+        <a href="#how">How it works</a>
         <a href="#subgraphs">Subgraphs</a>
         <a href="#features">Features</a>
         <a href="#risk">Risk Levels</a>
-        <a href="#api">GraphQL API</a>
-        <a href="https://thegraph.com" target="_blank" rel="noopener">The Graph</a>
+        <a href="#glossary">Glossary</a>
         <a href="https://web-production-387cf.up.railway.app" target="_blank" rel="noopener">Dashboard</a>
       </div>
     </div>
@@ -1794,6 +2306,24 @@ query CriticalPositions {
 
     revealElements.forEach((element) => {
       revealObserver.observe(element);
+    });
+
+    function openSubgraphSearch(subgraphName) {
+      const searchUrl = "https://thegraph.com/explorer?search=" + encodeURIComponent(subgraphName);
+      window.open(searchUrl, "_blank", "noopener,noreferrer");
+    }
+
+    document.querySelectorAll(".js-subgraph").forEach((card) => {
+      card.addEventListener("click", () => {
+        openSubgraphSearch(card.dataset.subgraph);
+      });
+
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openSubgraphSearch(card.dataset.subgraph);
+        }
+      });
     });
   </script>
 </body>
