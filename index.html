@@ -1587,6 +1587,341 @@
       line-height: 1.6;
     }
 
+
+    /* --- Thematic animated effects across the page --- */
+    main section {
+      isolation: isolate;
+    }
+
+    main section > :not(.section-fx) {
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-fx {
+      position: absolute;
+      inset: -44px -28px;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      border-radius: 46px;
+      opacity: 0.82;
+      mask-image: radial-gradient(circle at 50% 50%, black 0 55%, transparent 92%);
+    }
+
+    .section-fx::before,
+    .section-fx::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.55;
+    }
+
+    .section-fx::before {
+      background:
+        radial-gradient(circle at 18% 22%, rgba(139, 92, 246, 0.16), transparent 28%),
+        radial-gradient(circle at 82% 72%, rgba(34, 211, 238, 0.12), transparent 32%);
+      animation: sectionGlowBreath 8s ease-in-out infinite alternate;
+    }
+
+    .section-fx::after {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 46px 46px;
+      transform-origin: center;
+      animation: sectionGridDrift 16s linear infinite;
+      mask-image: linear-gradient(to bottom, transparent, black 18%, black 78%, transparent);
+    }
+
+    .fx-particle {
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      font-size: var(--size);
+      line-height: 1;
+      opacity: var(--opacity);
+      color: rgba(220, 229, 255, 0.82);
+      filter: drop-shadow(0 0 16px currentColor);
+      animation-duration: var(--dur);
+      animation-delay: var(--delay);
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      will-change: transform, opacity;
+    }
+
+    @keyframes sectionGlowBreath {
+      from { transform: translate3d(-8px, -6px, 0) scale(1); opacity: 0.45; }
+      to { transform: translate3d(14px, 12px, 0) scale(1.08); opacity: 0.85; }
+    }
+
+    @keyframes sectionGridDrift {
+      from { background-position: 0 0, 0 0; }
+      to { background-position: 92px 46px, 46px 92px; }
+    }
+
+    @keyframes fxFloatUp {
+      0% { transform: translate3d(0, 18px, 0) scale(0.92) rotate(-8deg); opacity: 0; }
+      15% { opacity: var(--opacity); }
+      50% { transform: translate3d(var(--dx), -18px, 0) scale(1.06) rotate(7deg); }
+      100% { transform: translate3d(calc(var(--dx) * -0.35), -70px, 0) scale(0.86) rotate(-10deg); opacity: 0; }
+    }
+
+    @keyframes fxDropRisk {
+      0% { transform: translate3d(0, -52px, 0) rotate(-8deg) scale(0.88); opacity: 0; }
+      14% { opacity: var(--opacity); }
+      72% { opacity: var(--opacity); }
+      100% { transform: translate3d(var(--dx), 120px, 0) rotate(14deg) scale(1.02); opacity: 0; }
+    }
+
+    @keyframes fxDataStream {
+      0% { transform: translate3d(-90px, 0, 0) scaleX(0.7); opacity: 0; }
+      18% { opacity: var(--opacity); }
+      78% { opacity: var(--opacity); }
+      100% { transform: translate3d(190px, -34px, 0) scaleX(1.18); opacity: 0; }
+    }
+
+    @keyframes fxPulseNode {
+      0%, 100% { transform: scale(0.82); opacity: 0.28; }
+      50% { transform: scale(1.28); opacity: var(--opacity); }
+    }
+
+    @keyframes fxCodeFall {
+      0% { transform: translate3d(0, -70px, 0); opacity: 0; }
+      20% { opacity: var(--opacity); }
+      82% { opacity: var(--opacity); }
+      100% { transform: translate3d(var(--dx), 95px, 0); opacity: 0; }
+    }
+
+    @keyframes fxGaugeOrbit {
+      from { transform: rotate(0deg) translateX(42px) rotate(0deg); opacity: 0.32; }
+      50% { opacity: var(--opacity); }
+      to { transform: rotate(360deg) translateX(42px) rotate(-360deg); opacity: 0.32; }
+    }
+
+    .theme-problem .section-fx::before {
+      background:
+        radial-gradient(circle at 16% 20%, rgba(255, 77, 125, 0.18), transparent 28%),
+        radial-gradient(circle at 78% 70%, rgba(250, 204, 21, 0.12), transparent 32%);
+    }
+
+    .theme-problem .fx-particle {
+      color: rgba(255, 77, 125, 0.88);
+      animation-name: fxDropRisk;
+    }
+
+    .theme-problem .explanation-number {
+      animation: numberRiskPulse 3.2s ease-in-out infinite;
+    }
+
+    @keyframes numberRiskPulse {
+      0%, 100% { box-shadow: 0 0 0 rgba(255, 77, 125, 0); }
+      50% { box-shadow: 0 0 34px rgba(255, 77, 125, 0.25); }
+    }
+
+    .theme-how .section-fx::before {
+      background:
+        linear-gradient(115deg, transparent 12%, rgba(34, 211, 238, 0.13) 28%, transparent 44%),
+        radial-gradient(circle at 80% 20%, rgba(20, 241, 149, 0.11), transparent 28%);
+    }
+
+    .theme-how .fx-particle {
+      width: clamp(36px, 5vw, 74px);
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.9), transparent);
+      color: transparent;
+      animation-name: fxDataStream;
+      filter: drop-shadow(0 0 14px rgba(34, 211, 238, 0.75));
+    }
+
+    .theme-how .flow-icon {
+      animation: iconSoftLift 4s ease-in-out infinite;
+    }
+
+    .theme-how .flow-card:nth-child(2) .flow-icon { animation-delay: 0.4s; }
+    .theme-how .flow-card:nth-child(3) .flow-icon { animation-delay: 0.8s; }
+    .theme-how .flow-card:nth-child(4) .flow-icon { animation-delay: 1.2s; }
+
+    @keyframes iconSoftLift {
+      0%, 100% { transform: translateY(0) rotate(0); }
+      50% { transform: translateY(-8px) rotate(2deg); }
+    }
+
+    .theme-subgraphs .section-fx::before {
+      background:
+        radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.2), transparent 25%),
+        radial-gradient(circle at 20% 80%, rgba(34, 211, 238, 0.11), transparent 30%);
+    }
+
+    .theme-subgraphs .fx-particle {
+      color: rgba(167, 139, 250, 0.9);
+      animation-name: fxPulseNode;
+    }
+
+    .theme-subgraphs .query-preview {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .theme-subgraphs .query-preview::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: translateX(-110%);
+      background: linear-gradient(90deg, transparent, rgba(20, 241, 149, 0.16), transparent);
+      animation: queryScanner 3.4s ease-in-out infinite;
+    }
+
+    @keyframes queryScanner {
+      0%, 24% { transform: translateX(-110%); }
+      62% { transform: translateX(110%); }
+      100% { transform: translateX(110%); }
+    }
+
+    .theme-features .fx-particle,
+    .theme-audience .fx-particle {
+      color: rgba(20, 241, 149, 0.84);
+      animation-name: fxFloatUp;
+    }
+
+    .theme-features .feature-icon,
+    .theme-audience .feature-icon {
+      animation: featureIconPulse 4.8s ease-in-out infinite;
+    }
+
+    @keyframes featureIconPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(20, 241, 149, 0); }
+      50% { transform: scale(1.06); box-shadow: 0 0 34px rgba(20, 241, 149, 0.16); }
+    }
+
+    .theme-projects .section-fx::before,
+    .theme-liqscan .section-fx::before {
+      background:
+        radial-gradient(circle at 20% 10%, rgba(139, 92, 246, 0.22), transparent 30%),
+        linear-gradient(135deg, transparent, rgba(34, 211, 238, 0.08), transparent);
+    }
+
+    .theme-projects .fx-particle,
+    .theme-liqscan .fx-particle {
+      color: rgba(34, 211, 238, 0.86);
+      animation-name: fxCodeFall;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    .theme-projects .project-visual-card-full::after,
+    .theme-liqscan .liqscan-terminal::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -40%;
+      height: 38%;
+      background: linear-gradient(to bottom, transparent, rgba(34, 211, 238, 0.12), transparent);
+      animation: screenSweep 5.2s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .theme-projects .project-visual-card-full,
+    .theme-liqscan .liqscan-terminal {
+      position: relative;
+    }
+
+    @keyframes screenSweep {
+      0%, 18% { transform: translateY(0); opacity: 0; }
+      34% { opacity: 1; }
+      80% { transform: translateY(365%); opacity: 1; }
+      100% { transform: translateY(365%); opacity: 0; }
+    }
+
+    .theme-risk .section-fx::before {
+      background:
+        radial-gradient(circle at 24% 24%, rgba(255, 77, 125, 0.14), transparent 28%),
+        radial-gradient(circle at 54% 58%, rgba(250, 204, 21, 0.1), transparent 25%),
+        radial-gradient(circle at 82% 76%, rgba(20, 241, 149, 0.12), transparent 30%);
+    }
+
+    .theme-risk .fx-particle {
+      color: rgba(250, 204, 21, 0.88);
+      animation-name: fxGaugeOrbit;
+    }
+
+    .theme-risk .risk-circle {
+      animation: riskCircleBreath 4.8s ease-in-out infinite;
+    }
+
+    @keyframes riskCircleBreath {
+      0%, 100% { filter: saturate(1); transform: scale(1); }
+      50% { filter: saturate(1.2); transform: scale(1.025); }
+    }
+
+    .theme-numbers .fx-particle {
+      color: rgba(34, 211, 238, 0.82);
+      animation-name: fxFloatUp;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    .theme-numbers .number-card strong {
+      display: inline-block;
+      animation: numberGlow 4.1s ease-in-out infinite;
+    }
+
+    @keyframes numberGlow {
+      0%, 100% { text-shadow: 0 0 0 rgba(34, 211, 238, 0); }
+      50% { text-shadow: 0 0 28px rgba(34, 211, 238, 0.32); }
+    }
+
+    .theme-glossary .fx-particle {
+      color: rgba(220, 229, 255, 0.78);
+      animation-name: fxFloatUp;
+    }
+
+    .theme-api .fx-particle {
+      color: rgba(20, 241, 149, 0.86);
+      animation-name: fxCodeFall;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    .theme-api .code-window {
+      position: relative;
+    }
+
+    .theme-api .code-window::after {
+      content: "";
+      position: absolute;
+      inset: 46px 0 auto 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(20, 241, 149, 0.8), transparent);
+      animation: codeLineScan 4.4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes codeLineScan {
+      0%, 16% { transform: translateY(0); opacity: 0; }
+      28% { opacity: 1; }
+      78% { transform: translateY(250px); opacity: 1; }
+      100% { transform: translateY(250px); opacity: 0; }
+    }
+
+    .theme-cta .fx-particle {
+      color: rgba(167, 139, 250, 0.86);
+      animation-name: fxPulseNode;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+
+      .section-fx {
+        display: none;
+      }
+    }
+
+
     @media (max-width: 1050px) {
       .project-showcase-card {
         grid-template-columns: 1fr;
@@ -1615,6 +1950,8 @@
         border-radius: 16px;
       }
     }
+
+
 
     @media (max-width: 1050px) {
       .nav-links { display: none; }
@@ -2434,7 +2771,7 @@
       </div>
     </section>
 
-    <section class="container reveal">
+    <section id="audience" class="container reveal">
       <div class="section-header">
         <div>
           <p class="section-kicker" data-es="Casos de uso" data-en="Use cases">Casos de uso</p>
@@ -2720,7 +3057,7 @@
       </div>
     </section>
 
-    <section class="container reveal">
+    <section id="numbers" class="container reveal">
       <div class="section-header">
         <div>
           <p class="section-kicker" data-es="En números" data-en="By the numbers">En números</p>
@@ -3033,6 +3370,76 @@ query CriticalPositions {
     revealElements.forEach((element) => {
       revealObserver.observe(element);
     });
+
+
+    const thematicEffects = {
+      trusted: { className: "theme-subgraphs", particles: ["Ethereum", "Aave", "GRT", "Base", "OP", "Polygon"], count: 12 },
+      problem: { className: "theme-problem", particles: ["↓", "⚠", "HF 1.02", "LIQ", "-12%", "⚡"], count: 18 },
+      how: { className: "theme-how", particles: ["", "", "", ""], count: 16 },
+      subgraphs: { className: "theme-subgraphs", particles: ["●", "◆", "◇", "query", "node", "{ }"], count: 20 },
+      features: { className: "theme-features", particles: ["alert", "bot", "API", "risk", "24/7", "◎"], count: 16 },
+      audience: { className: "theme-audience", particles: ["📈", "DAO", "risk", "research", "vol", "◎"], count: 12 },
+      projects: { className: "theme-projects", particles: ["run", "scan", "risk", "bot", "{ }", "HF"], count: 18 },
+      risk: { className: "theme-risk", particles: ["•", "35", "SAFE", "⚠", "1.00", "•"], count: 16 },
+      numbers: { className: "theme-numbers", particles: ["280K", "220K", "71K", "5", "+", "data"], count: 14 },
+      glossary: { className: "theme-glossary", particles: ["DeFi", "HF", "API", "loan", "GRT", "?"], count: 14 },
+      api: { className: "theme-api", particles: ["query", "id", "risk", "{ }", "USD", "block"], count: 18 }
+    };
+
+    function createThematicEffects() {
+      Object.entries(thematicEffects).forEach(([sectionId, config]) => {
+        const section = sectionId === "trusted"
+          ? document.querySelector(".trusted")
+          : document.getElementById(sectionId);
+
+        if (!section || section.querySelector(".section-fx")) return;
+
+        section.classList.add(config.className);
+        const layer = document.createElement("div");
+        layer.className = "section-fx";
+        layer.setAttribute("aria-hidden", "true");
+
+        for (let index = 0; index < config.count; index += 1) {
+          const particle = document.createElement("span");
+          particle.className = "fx-particle";
+          particle.textContent = config.particles[index % config.particles.length];
+          particle.style.setProperty("--x", `${8 + Math.random() * 84}%`);
+          particle.style.setProperty("--y", `${6 + Math.random() * 86}%`);
+          particle.style.setProperty("--dx", `${Math.round(-55 + Math.random() * 110)}px`);
+          particle.style.setProperty("--size", `${0.64 + Math.random() * 0.55}rem`);
+          particle.style.setProperty("--opacity", `${0.22 + Math.random() * 0.38}`);
+          particle.style.setProperty("--dur", `${5.5 + Math.random() * 7.5}s`);
+          particle.style.setProperty("--delay", `${-Math.random() * 8}s`);
+          layer.appendChild(particle);
+        }
+
+        section.prepend(layer);
+      });
+
+      const cta = document.querySelector(".cta-section");
+      if (cta && !cta.querySelector(".section-fx")) {
+        cta.classList.add("theme-cta");
+        const layer = document.createElement("div");
+        layer.className = "section-fx";
+        layer.setAttribute("aria-hidden", "true");
+        ["●", "DR", "risk", "live", "◆", "◎", "GRT", "DeFi", "API", "alert"].forEach((text, index) => {
+          const particle = document.createElement("span");
+          particle.className = "fx-particle";
+          particle.textContent = text;
+          particle.style.setProperty("--x", `${10 + ((index * 17) % 78)}%`);
+          particle.style.setProperty("--y", `${12 + ((index * 23) % 70)}%`);
+          particle.style.setProperty("--dx", `${index % 2 === 0 ? 38 : -38}px`);
+          particle.style.setProperty("--size", `${0.75 + (index % 3) * 0.16}rem`);
+          particle.style.setProperty("--opacity", "0.42");
+          particle.style.setProperty("--dur", `${5.8 + index * 0.4}s`);
+          particle.style.setProperty("--delay", `${-index * 0.35}s`);
+          layer.appendChild(particle);
+        });
+        cta.prepend(layer);
+      }
+    }
+
+    createThematicEffects();
 
     let currentLanguage = "es";
     const languageToggle = document.getElementById("languageToggle");
