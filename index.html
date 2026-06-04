@@ -1465,6 +1465,157 @@
       transform: translateY(0);
     }
 
+
+
+    /* --- Projects / LiqScan final layout fix --- */
+    .project-showcase-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 30px;
+      align-items: stretch;
+      margin-bottom: 28px;
+      padding: 34px;
+    }
+
+    .project-showcase-copy h3 {
+      font-size: clamp(2.6rem, 5vw, 5.15rem);
+      line-height: 0.96;
+      letter-spacing: -0.08em;
+      margin-bottom: 22px;
+      max-width: 780px;
+    }
+
+    .project-showcase-copy p {
+      color: var(--text-muted);
+      line-height: 1.72;
+      font-size: 1rem;
+      margin-bottom: 16px;
+      max-width: 720px;
+    }
+
+    .project-showcase-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      min-width: 0;
+    }
+
+    .project-explainer-clean {
+      margin: 0;
+      max-width: none;
+    }
+
+    .project-process-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .project-process-card {
+      padding: 17px 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.052);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .project-process-card strong {
+      display: block;
+      margin-bottom: 7px;
+      letter-spacing: -0.03em;
+    }
+
+    .project-process-card p {
+      color: var(--text-muted);
+      line-height: 1.55;
+      font-size: 0.9rem;
+    }
+
+    .project-buttons-clean {
+      margin: 0;
+    }
+
+    .project-visual-card-full {
+      padding: 16px;
+      border-radius: 36px;
+      max-width: none;
+      margin-top: 0;
+    }
+
+    .project-screenshot-wrap-full {
+      width: 100%;
+      height: auto;
+      min-height: 0;
+      padding: 10px;
+      border-radius: 28px;
+      background: rgba(2, 5, 18, 0.82);
+      overflow: hidden;
+    }
+
+    .project-screenshot-full {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: none;
+      margin: 0;
+      object-fit: contain;
+      object-position: top center;
+      border-radius: 20px;
+      transform: none;
+    }
+
+    .project-visual-card-full:hover .project-screenshot-full {
+      transform: scale(1.006);
+      filter: brightness(1.08) saturate(1.08);
+    }
+
+    .project-caption-clean {
+      padding: 18px 8px 4px;
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .project-caption-clean h4 {
+      margin: 0;
+      font-size: 1.15rem;
+    }
+
+    .project-caption-clean p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1050px) {
+      .project-showcase-card {
+        grid-template-columns: 1fr;
+      }
+
+      .project-caption-clean {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .project-showcase-card {
+        padding: 24px;
+      }
+
+      .project-showcase-copy h3 {
+        font-size: clamp(2.3rem, 14vw, 3.7rem);
+      }
+
+      .project-screenshot-wrap-full {
+        padding: 6px;
+        border-radius: 22px;
+      }
+
+      .project-screenshot-full {
+        border-radius: 16px;
+      }
+    }
+
     @media (max-width: 1050px) {
       .nav-links { display: none; }
 
@@ -2360,43 +2511,69 @@
         >Esta sección reúne proyectos prácticos derivados del monitor de riesgo. El primero es LiqScan: una aplicación para detectar y verificar posiciones cercanas a liquidación en Aave V3.</p>
       </div>
 
-      <div class="projects-grid">
-        <article class="card project-hero-card">
-          <div>
-            <p class="section-kicker">Proyecto 01 · LiqScan</p>
-            <h3
-              data-es="Un escáner de liquidaciones con verificación on-chain."
-              data-en="A liquidation scanner with on-chain verification."
-            >Un escáner de liquidaciones con verificación on-chain.</h3>
+      <article class="card project-showcase-card">
+        <div class="project-showcase-copy">
+          <p class="section-kicker">Proyecto 01 · LiqScan</p>
+          <h3
+            data-es="Un escáner de liquidaciones con verificación on-chain."
+            data-en="A liquidation scanner with on-chain verification."
+          >Un escáner de liquidaciones con verificación on-chain.</h3>
 
+          <p
+            data-es="LiqScan es un dashboard operativo que monitoriza posiciones de préstamo en Aave V3. Su objetivo es convertir datos complejos en una pantalla fácil de leer: posiciones liquidables, posiciones en riesgo y posiciones que conviene vigilar."
+            data-en="LiqScan is an operational dashboard that monitors Aave V3 lending positions. Its goal is to turn complex data into an easy-to-read screen: liquidatable positions, at-risk positions and positions worth watching."
+          >LiqScan es un dashboard operativo que monitoriza posiciones de préstamo en Aave V3. Su objetivo es convertir datos complejos en una pantalla fácil de leer: posiciones liquidables, posiciones en riesgo y posiciones que conviene vigilar.</p>
+
+          <p
+            data-es="La clave del proyecto es que no se limita a confiar en el subgraph. Primero usa The Graph para encontrar wallets candidatas y después consulta directamente el contrato Pool de Aave con getUserAccountData(). Si la deuda real es cero o el Health Factor no confirma el riesgo, la señal se descarta."
+            data-en="The key point is that the project does not simply trust the subgraph. First it uses The Graph to find candidate wallets, then it queries the Aave Pool contract directly with getUserAccountData(). If real debt is zero or the Health Factor does not confirm risk, the signal is discarded."
+          >La clave del proyecto es que no se limita a confiar en el subgraph. Primero usa The Graph para encontrar wallets candidatas y después consulta directamente el contrato Pool de Aave con getUserAccountData(). Si la deuda real es cero o el Health Factor no confirma el riesgo, la señal se descarta.</p>
+
+          <div class="project-meta-row">
+            <span class="project-meta-pill">Aave V3</span>
+            <span class="project-meta-pill">The Graph</span>
+            <span class="project-meta-pill">On-chain verification</span>
+            <span class="project-meta-pill">Railway</span>
+            <span class="project-meta-pill">5 EVM chains</span>
+          </div>
+        </div>
+
+        <div class="project-showcase-panel">
+          <div class="simple-explainer project-explainer-clean">
+            <span data-es="Explicación sencilla" data-en="Simple explanation">Explicación sencilla</span>
             <p
-              data-es="LiqScan es un dashboard operativo que monitoriza posiciones de préstamo en Aave V3. Su objetivo es convertir datos complejos en una pantalla fácil de leer: posiciones liquidables, posiciones en riesgo y posiciones que conviene vigilar."
-              data-en="LiqScan is an operational dashboard that monitors Aave V3 lending positions. Its goal is to turn complex data into an easy-to-read screen: liquidatable positions, at-risk positions and positions worth watching."
-            >LiqScan es un dashboard operativo que monitoriza posiciones de préstamo en Aave V3. Su objetivo es convertir datos complejos en una pantalla fácil de leer: posiciones liquidables, posiciones en riesgo y posiciones que conviene vigilar.</p>
+              data-es="Si una persona pide prestado en DeFi dejando criptomonedas como garantía, puede ser liquidada si esa garantía pierde demasiado valor. LiqScan ayuda a ver qué posiciones están cerca de ese punto, pero también comprueba si el riesgo es real antes de mostrarlo."
+              data-en="If someone borrows in DeFi by depositing crypto as collateral, they can be liquidated if that collateral loses too much value. LiqScan helps identify which positions are close to that point, but also checks whether the risk is real before displaying it."
+            >Si una persona pide prestado en DeFi dejando criptomonedas como garantía, puede ser liquidada si esa garantía pierde demasiado valor. LiqScan ayuda a ver qué posiciones están cerca de ese punto, pero también comprueba si el riesgo es real antes de mostrarlo.</p>
+          </div>
 
-            <p
-              data-es="La clave del proyecto es que no se limita a confiar en el subgraph. Primero usa The Graph para encontrar wallets candidatas y después consulta directamente el contrato Pool de Aave con getUserAccountData(). Si la deuda real es cero o el Health Factor no confirma el riesgo, la señal se descarta."
-              data-en="The key point is that the project does not simply trust the subgraph. First it uses The Graph to find candidate wallets, then it queries the Aave Pool contract directly with getUserAccountData(). If real debt is zero or the Health Factor does not confirm risk, the signal is discarded."
-            >La clave del proyecto es que no se limita a confiar en el subgraph. Primero usa The Graph para encontrar wallets candidatas y después consulta directamente el contrato Pool de Aave con getUserAccountData(). Si la deuda real es cero o el Health Factor no confirma el riesgo, la señal se descarta.</p>
-
-            <div class="simple-explainer" style="margin: 22px 0 0;">
-              <span data-es="Explicación sencilla" data-en="Simple explanation">Explicación sencilla</span>
+          <div class="project-process-grid">
+            <div class="project-process-card">
+              <strong data-es="1. Datos candidatos" data-en="1. Candidate data">1. Datos candidatos</strong>
               <p
-                data-es="Si una persona pide prestado en DeFi dejando criptomonedas como garantía, puede ser liquidada si esa garantía pierde demasiado valor. LiqScan ayuda a ver qué posiciones están cerca de ese punto, pero también comprueba si el riesgo es real antes de mostrarlo."
-                data-en="If someone borrows in DeFi by depositing crypto as collateral, they can be liquidated if that collateral loses too much value. LiqScan helps identify which positions are close to that point, but also checks whether the risk is real before displaying it."
-              >Si una persona pide prestado en DeFi dejando criptomonedas como garantía, puede ser liquidada si esa garantía pierde demasiado valor. LiqScan ayuda a ver qué posiciones están cerca de ese punto, pero también comprueba si el riesgo es real antes de mostrarlo.</p>
+                data-es="The Graph ayuda a encontrar wallets que podrían estar cerca de liquidación."
+                data-en="The Graph helps discover wallets that may be close to liquidation."
+              >The Graph ayuda a encontrar wallets que podrían estar cerca de liquidación.</p>
             </div>
 
-            <div class="project-meta-row">
-              <span class="project-meta-pill">Aave V3</span>
-              <span class="project-meta-pill">The Graph</span>
-              <span class="project-meta-pill">On-chain verification</span>
-              <span class="project-meta-pill">Railway</span>
-              <span class="project-meta-pill">5 EVM chains</span>
+            <div class="project-process-card">
+              <strong data-es="2. Verificación real" data-en="2. Real verification">2. Verificación real</strong>
+              <p
+                data-es="El backend consulta Aave on-chain para confirmar deuda y Health Factor reales."
+                data-en="The backend queries Aave on-chain to confirm real debt and Health Factor."
+              >El backend consulta Aave on-chain para confirmar deuda y Health Factor reales.</p>
+            </div>
+
+            <div class="project-process-card">
+              <strong data-es="3. Señales limpias" data-en="3. Clean signals">3. Señales limpias</strong>
+              <p
+                data-es="Descarta falsos positivos y muestra solo posiciones confirmadas por contrato."
+                data-en="It discards false positives and displays only contract-confirmed positions."
+              >Descarta falsos positivos y muestra solo posiciones confirmadas por contrato.</p>
             </div>
           </div>
 
-          <div class="hero-buttons" style="margin-top: 30px;">
+          <div class="hero-buttons project-buttons-clean">
             <a
               class="btn btn-primary"
               href="https://web-production-387cf.up.railway.app"
@@ -2412,97 +2589,36 @@
               data-en="View endpoints"
             >Ver endpoints</a>
           </div>
-        </article>
-
-        <div class="project-visual-stack">
-          <article class="project-visual-card">
-            <div class="project-browser-bar" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-              <p>LiqScan · Live dashboard</p>
-            </div>
-
-            <div class="project-screenshot-wrap">
-              <img
-                class="project-screenshot"
-                src="./liqscan-at-risk.png?v=5"
-                alt="Captura grande del dashboard LiqScan"
-                loading="lazy"
-              >
-            </div>
-
-            <div class="project-screenshot-caption">
-              <h4 data-es="Dashboard operativo" data-en="Operational dashboard">Dashboard operativo</h4>
-              <p
-                data-es="Vista real de LiqScan con métricas por red, posiciones liquidables, posiciones en riesgo, watchlist y búsqueda por wallet."
-                data-en="Real LiqScan view with network metrics, liquidatable positions, at-risk positions, watchlist and wallet search."
-              >Vista real de LiqScan con métricas por red, posiciones liquidables, posiciones en riesgo, watchlist y búsqueda por wallet.</p>
-            </div>
-          </article>
-
-          <div class="project-mini-grid">
-            <div class="project-mini-card">
-              <strong data-es="Datos candidatos" data-en="Candidate data">Datos candidatos</strong>
-              <p
-                data-es="The Graph ayuda a encontrar wallets que podrían estar cerca de liquidación."
-                data-en="The Graph helps discover wallets that may be close to liquidation."
-              >The Graph ayuda a encontrar wallets que podrían estar cerca de liquidación.</p>
-            </div>
-
-            <div class="project-mini-card">
-              <strong data-es="Verificación real" data-en="Real verification">Verificación real</strong>
-              <p
-                data-es="El backend consulta Aave on-chain para confirmar deuda y Health Factor reales."
-                data-en="The backend queries Aave on-chain to confirm real debt and Health Factor."
-              >El backend consulta Aave on-chain para confirmar deuda y Health Factor reales.</p>
-            </div>
-
-            <div class="project-mini-card">
-              <strong data-es="Señales limpias" data-en="Clean signals">Señales limpias</strong>
-              <p
-                data-es="Descarta falsos positivos y muestra solo posiciones confirmadas por contrato."
-                data-en="It discards false positives and displays only contract-confirmed positions."
-              >Descarta falsos positivos y muestra solo posiciones confirmadas por contrato.</p>
-            </div>
-          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-process-grid">
-        <div class="project-process-item">
-          <strong data-es="1. Detecta candidatos" data-en="1. Detects candidates">1. Detecta candidatos</strong>
+      <article class="project-visual-card project-visual-card-full">
+        <div class="project-browser-bar" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <p>LiqScan · Live dashboard</p>
+        </div>
+
+        <div class="project-screenshot-wrap project-screenshot-wrap-full">
+          <img
+            class="project-screenshot project-screenshot-full"
+            src="./liqscan-at-risk.png?v=7"
+            alt="Captura grande del dashboard LiqScan"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="project-screenshot-caption project-caption-clean">
+          <h4 data-es="Dashboard operativo" data-en="Operational dashboard">Dashboard operativo</h4>
           <p
-            data-es="Usa subgraphs para encontrar posiciones que parecen liquidables, en riesgo o relevantes para seguimiento."
-            data-en="Uses subgraphs to find positions that appear liquidatable, at risk or relevant for monitoring."
-          >Usa subgraphs para encontrar posiciones que parecen liquidables, en riesgo o relevantes para seguimiento.</p>
+            data-es="Vista real de LiqScan con métricas por red, posiciones liquidables, posiciones en riesgo, watchlist y búsqueda por wallet. La captura se muestra completa para que se entienda visualmente el producto construido."
+            data-en="Real LiqScan view with network metrics, liquidatable positions, at-risk positions, watchlist and wallet search. The screenshot is shown in full so the product is visually clear."
+          >Vista real de LiqScan con métricas por red, posiciones liquidables, posiciones en riesgo, watchlist y búsqueda por wallet. La captura se muestra completa para que se entienda visualmente el producto construido.</p>
         </div>
-
-        <div class="project-process-item">
-          <strong data-es="2. Verifica on-chain" data-en="2. Verifies on-chain">2. Verifica on-chain</strong>
-          <p
-            data-es="Consulta directamente Aave Pool para confirmar deuda, colateral y Health Factor reales."
-            data-en="Queries Aave Pool directly to confirm real debt, collateral and Health Factor."
-          >Consulta directamente Aave Pool para confirmar deuda, colateral y Health Factor reales.</p>
-        </div>
-
-        <div class="project-process-item">
-          <strong data-es="3. Reduce falsos positivos" data-en="3. Reduces false positives">3. Reduce falsos positivos</strong>
-          <p
-            data-es="Descarta wallets sin deuda real o con un riesgo que no se confirma en el contrato."
-            data-en="Discards wallets with no real debt or with risk that is not confirmed by the contract."
-          >Descarta wallets sin deuda real o con un riesgo que no se confirma en el contrato.</p>
-        </div>
-
-        <div class="project-process-item">
-          <strong data-es="4. Muestra señales útiles" data-en="4. Displays useful signals">4. Muestra señales útiles</strong>
-          <p
-            data-es="Clasifica cada caso en Liquidatable, At Risk o Watchlist para priorizar qué revisar."
-            data-en="Classifies each case as Liquidatable, At Risk or Watchlist to prioritize what to review."
-          >Clasifica cada caso en Liquidatable, At Risk o Watchlist para priorizar qué revisar.</p>
-        </div>
-      </div>
+      </article>
     </section>
+
 
     <section id="risk" class="container reveal">
       <div class="section-header">
