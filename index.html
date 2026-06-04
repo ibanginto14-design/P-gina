@@ -1028,9 +1028,9 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: minmax(340px, 0.85fr) minmax(0, 1.25fr);
+      grid-template-columns: minmax(280px, 0.68fr) minmax(0, 1.62fr);
       gap: 28px;
-      align-items: stretch;
+      align-items: start;
     }
 
     .project-hero-card {
@@ -1041,8 +1041,8 @@
     }
 
     .project-hero-card h3 {
-      font-size: clamp(2.2rem, 3.35vw, 4rem);
-      line-height: 1.02;
+      font-size: clamp(2rem, 2.85vw, 3.35rem);
+      line-height: 1.03;
       letter-spacing: -0.075em;
       margin-bottom: 20px;
     }
@@ -1076,13 +1076,14 @@
       display: grid;
       gap: 18px;
       min-width: 0;
+      align-self: start;
     }
 
     .project-visual-card {
       position: relative;
       width: 100%;
       border-radius: 34px;
-      padding: 18px;
+      padding: 14px;
       background:
         radial-gradient(circle at 20% 0%, rgba(139, 92, 246, 0.22), transparent 36%),
         radial-gradient(circle at 100% 100%, rgba(34, 211, 238, 0.14), transparent 36%),
@@ -1090,6 +1091,7 @@
       border: 1px solid rgba(255, 255, 255, 0.14);
       box-shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
       overflow: hidden;
+      align-self: start;
     }
 
     .project-browser-bar {
@@ -1122,27 +1124,35 @@
       font-weight: 800;
     }
 
-    .project-screenshot {
-      display: block;
+    .project-screenshot-wrap {
+      position: relative;
       width: 100%;
-      height: auto;
-      max-height: 520px;
-      object-fit: contain;
-      object-position: top center;
+      height: clamp(380px, 42vw, 590px);
       border-radius: 24px;
       border: 1px solid rgba(255, 255, 255, 0.14);
       background: rgba(2, 5, 18, 0.72);
       box-shadow: 0 26px 80px rgba(0, 0, 0, 0.42);
+      overflow: hidden;
+    }
+
+    .project-screenshot {
+      display: block;
+      width: 120%;
+      height: 100%;
+      margin-left: -10%;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 22px;
       transition: transform 0.35s ease, filter 0.35s ease;
     }
 
     .project-visual-card:hover .project-screenshot {
-      transform: scale(1.012);
+      transform: scale(1.025);
       filter: brightness(1.08) saturate(1.08);
     }
 
     .project-screenshot-caption {
-      padding: 20px 6px 2px;
+      padding: 16px 6px 2px;
     }
 
     .project-screenshot-caption h4 {
@@ -1487,9 +1497,14 @@
         min-height: auto;
       }
 
-      .project-screenshot {
+      .project-screenshot-wrap {
         height: auto;
-        max-height: none;
+      }
+
+      .project-screenshot {
+        width: 100%;
+        height: auto;
+        margin-left: 0;
         object-fit: contain;
         transform: none;
       }
@@ -2408,19 +2423,21 @@
               <p>LiqScan · Live dashboard</p>
             </div>
 
-            <img
-              class="project-screenshot"
-              src="./liqscan-at-risk.png?v=4"
-              alt="Captura grande del dashboard LiqScan"
-              loading="lazy"
-            >
+            <div class="project-screenshot-wrap">
+              <img
+                class="project-screenshot"
+                src="./liqscan-at-risk.png?v=5"
+                alt="Captura grande del dashboard LiqScan"
+                loading="lazy"
+              >
+            </div>
 
             <div class="project-screenshot-caption">
               <h4 data-es="Dashboard operativo" data-en="Operational dashboard">Dashboard operativo</h4>
               <p
-                data-es="La captura muestra la interfaz real de LiqScan: métricas por red, posiciones liquidables, posiciones en riesgo, watchlist y búsqueda por wallet. La imagen se presenta como mockup de producto para que se entienda visualmente qué se ha construido."
-                data-en="The screenshot shows the real LiqScan interface: network metrics, liquidatable positions, at-risk positions, watchlist and wallet search. The image is presented as a product mockup so the project is visually clear."
-              >La captura muestra la interfaz real de LiqScan: métricas por red, posiciones liquidables, posiciones en riesgo, watchlist y búsqueda por wallet. La imagen se presenta como mockup de producto para que se entienda visualmente qué se ha construido.</p>
+                data-es="Vista real de LiqScan con métricas por red, posiciones liquidables, posiciones en riesgo, watchlist y búsqueda por wallet."
+                data-en="Real LiqScan view with network metrics, liquidatable positions, at-risk positions, watchlist and wallet search."
+              >Vista real de LiqScan con métricas por red, posiciones liquidables, posiciones en riesgo, watchlist y búsqueda por wallet.</p>
             </div>
           </article>
 
