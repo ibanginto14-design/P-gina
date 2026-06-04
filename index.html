@@ -1588,6 +1588,24 @@
     }
 
 
+    .project-visual-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .project-visual-link:focus-visible {
+      outline: 3px solid rgba(34, 211, 238, 0.85);
+      outline-offset: 6px;
+    }
+
+    .project-visual-link .project-browser-bar p::after {
+      content: " · click to open";
+      color: var(--accent-3);
+    }
+
+
     /* --- Thematic animated effects across the page --- */
     main section {
       isolation: isolate;
@@ -1951,6 +1969,339 @@
       }
     }
 
+
+    /* --- Thematic animated effects across the page --- */
+    main section {
+      isolation: isolate;
+    }
+
+    main section > :not(.section-fx) {
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-fx {
+      position: absolute;
+      inset: -44px -28px;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      border-radius: 46px;
+      opacity: 0.82;
+      mask-image: radial-gradient(circle at 50% 50%, black 0 55%, transparent 92%);
+    }
+
+    .section-fx::before,
+    .section-fx::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.55;
+    }
+
+    .section-fx::before {
+      background:
+        radial-gradient(circle at 18% 22%, rgba(139, 92, 246, 0.16), transparent 28%),
+        radial-gradient(circle at 82% 72%, rgba(34, 211, 238, 0.12), transparent 32%);
+      animation: sectionGlowBreath 8s ease-in-out infinite alternate;
+    }
+
+    .section-fx::after {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 46px 46px;
+      transform-origin: center;
+      animation: sectionGridDrift 16s linear infinite;
+      mask-image: linear-gradient(to bottom, transparent, black 18%, black 78%, transparent);
+    }
+
+    .fx-particle {
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      font-size: var(--size);
+      line-height: 1;
+      opacity: var(--opacity);
+      color: rgba(220, 229, 255, 0.82);
+      filter: drop-shadow(0 0 16px currentColor);
+      animation-duration: var(--dur);
+      animation-delay: var(--delay);
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      will-change: transform, opacity;
+    }
+
+    @keyframes sectionGlowBreath {
+      from { transform: translate3d(-8px, -6px, 0) scale(1); opacity: 0.45; }
+      to { transform: translate3d(14px, 12px, 0) scale(1.08); opacity: 0.85; }
+    }
+
+    @keyframes sectionGridDrift {
+      from { background-position: 0 0, 0 0; }
+      to { background-position: 92px 46px, 46px 92px; }
+    }
+
+    @keyframes fxFloatUp {
+      0% { transform: translate3d(0, 18px, 0) scale(0.92) rotate(-8deg); opacity: 0; }
+      15% { opacity: var(--opacity); }
+      50% { transform: translate3d(var(--dx), -18px, 0) scale(1.06) rotate(7deg); }
+      100% { transform: translate3d(calc(var(--dx) * -0.35), -70px, 0) scale(0.86) rotate(-10deg); opacity: 0; }
+    }
+
+    @keyframes fxDropRisk {
+      0% { transform: translate3d(0, -52px, 0) rotate(-8deg) scale(0.88); opacity: 0; }
+      14% { opacity: var(--opacity); }
+      72% { opacity: var(--opacity); }
+      100% { transform: translate3d(var(--dx), 120px, 0) rotate(14deg) scale(1.02); opacity: 0; }
+    }
+
+    @keyframes fxDataStream {
+      0% { transform: translate3d(-90px, 0, 0) scaleX(0.7); opacity: 0; }
+      18% { opacity: var(--opacity); }
+      78% { opacity: var(--opacity); }
+      100% { transform: translate3d(190px, -34px, 0) scaleX(1.18); opacity: 0; }
+    }
+
+    @keyframes fxPulseNode {
+      0%, 100% { transform: scale(0.82); opacity: 0.28; }
+      50% { transform: scale(1.28); opacity: var(--opacity); }
+    }
+
+    @keyframes fxCodeFall {
+      0% { transform: translate3d(0, -70px, 0); opacity: 0; }
+      20% { opacity: var(--opacity); }
+      82% { opacity: var(--opacity); }
+      100% { transform: translate3d(var(--dx), 95px, 0); opacity: 0; }
+    }
+
+    @keyframes fxGaugeOrbit {
+      from { transform: rotate(0deg) translateX(42px) rotate(0deg); opacity: 0.32; }
+      50% { opacity: var(--opacity); }
+      to { transform: rotate(360deg) translateX(42px) rotate(-360deg); opacity: 0.32; }
+    }
+
+    .theme-problem .section-fx::before {
+      background:
+        radial-gradient(circle at 16% 20%, rgba(255, 77, 125, 0.18), transparent 28%),
+        radial-gradient(circle at 78% 70%, rgba(250, 204, 21, 0.12), transparent 32%);
+    }
+
+    .theme-problem .fx-particle {
+      color: rgba(255, 77, 125, 0.88);
+      animation-name: fxDropRisk;
+    }
+
+    .theme-problem .explanation-number {
+      animation: numberRiskPulse 3.2s ease-in-out infinite;
+    }
+
+    @keyframes numberRiskPulse {
+      0%, 100% { box-shadow: 0 0 0 rgba(255, 77, 125, 0); }
+      50% { box-shadow: 0 0 34px rgba(255, 77, 125, 0.25); }
+    }
+
+    .theme-how .section-fx::before {
+      background:
+        linear-gradient(115deg, transparent 12%, rgba(34, 211, 238, 0.13) 28%, transparent 44%),
+        radial-gradient(circle at 80% 20%, rgba(20, 241, 149, 0.11), transparent 28%);
+    }
+
+    .theme-how .fx-particle {
+      width: clamp(36px, 5vw, 74px);
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.9), transparent);
+      color: transparent;
+      animation-name: fxDataStream;
+      filter: drop-shadow(0 0 14px rgba(34, 211, 238, 0.75));
+    }
+
+    .theme-how .flow-icon {
+      animation: iconSoftLift 4s ease-in-out infinite;
+    }
+
+    .theme-how .flow-card:nth-child(2) .flow-icon { animation-delay: 0.4s; }
+    .theme-how .flow-card:nth-child(3) .flow-icon { animation-delay: 0.8s; }
+    .theme-how .flow-card:nth-child(4) .flow-icon { animation-delay: 1.2s; }
+
+    @keyframes iconSoftLift {
+      0%, 100% { transform: translateY(0) rotate(0); }
+      50% { transform: translateY(-8px) rotate(2deg); }
+    }
+
+    .theme-subgraphs .section-fx::before {
+      background:
+        radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.2), transparent 25%),
+        radial-gradient(circle at 20% 80%, rgba(34, 211, 238, 0.11), transparent 30%);
+    }
+
+    .theme-subgraphs .fx-particle {
+      color: rgba(167, 139, 250, 0.9);
+      animation-name: fxPulseNode;
+    }
+
+    .theme-subgraphs .query-preview {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .theme-subgraphs .query-preview::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: translateX(-110%);
+      background: linear-gradient(90deg, transparent, rgba(20, 241, 149, 0.16), transparent);
+      animation: queryScanner 3.4s ease-in-out infinite;
+    }
+
+    @keyframes queryScanner {
+      0%, 24% { transform: translateX(-110%); }
+      62% { transform: translateX(110%); }
+      100% { transform: translateX(110%); }
+    }
+
+    .theme-features .fx-particle,
+    .theme-audience .fx-particle {
+      color: rgba(20, 241, 149, 0.84);
+      animation-name: fxFloatUp;
+    }
+
+    .theme-features .feature-icon,
+    .theme-audience .feature-icon {
+      animation: featureIconPulse 4.8s ease-in-out infinite;
+    }
+
+    @keyframes featureIconPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(20, 241, 149, 0); }
+      50% { transform: scale(1.06); box-shadow: 0 0 34px rgba(20, 241, 149, 0.16); }
+    }
+
+    .theme-projects .section-fx::before,
+    .theme-liqscan .section-fx::before {
+      background:
+        radial-gradient(circle at 20% 10%, rgba(139, 92, 246, 0.22), transparent 30%),
+        linear-gradient(135deg, transparent, rgba(34, 211, 238, 0.08), transparent);
+    }
+
+    .theme-projects .fx-particle,
+    .theme-liqscan .fx-particle {
+      color: rgba(34, 211, 238, 0.86);
+      animation-name: fxCodeFall;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    .theme-projects .project-visual-card-full::after,
+    .theme-liqscan .liqscan-terminal::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -40%;
+      height: 38%;
+      background: linear-gradient(to bottom, transparent, rgba(34, 211, 238, 0.12), transparent);
+      animation: screenSweep 5.2s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .theme-projects .project-visual-card-full,
+    .theme-liqscan .liqscan-terminal {
+      position: relative;
+    }
+
+    @keyframes screenSweep {
+      0%, 18% { transform: translateY(0); opacity: 0; }
+      34% { opacity: 1; }
+      80% { transform: translateY(365%); opacity: 1; }
+      100% { transform: translateY(365%); opacity: 0; }
+    }
+
+    .theme-risk .section-fx::before {
+      background:
+        radial-gradient(circle at 24% 24%, rgba(255, 77, 125, 0.14), transparent 28%),
+        radial-gradient(circle at 54% 58%, rgba(250, 204, 21, 0.1), transparent 25%),
+        radial-gradient(circle at 82% 76%, rgba(20, 241, 149, 0.12), transparent 30%);
+    }
+
+    .theme-risk .fx-particle {
+      color: rgba(250, 204, 21, 0.88);
+      animation-name: fxGaugeOrbit;
+    }
+
+    .theme-risk .risk-circle {
+      animation: riskCircleBreath 4.8s ease-in-out infinite;
+    }
+
+    @keyframes riskCircleBreath {
+      0%, 100% { filter: saturate(1); transform: scale(1); }
+      50% { filter: saturate(1.2); transform: scale(1.025); }
+    }
+
+    .theme-numbers .fx-particle {
+      color: rgba(34, 211, 238, 0.82);
+      animation-name: fxFloatUp;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    .theme-numbers .number-card strong {
+      display: inline-block;
+      animation: numberGlow 4.1s ease-in-out infinite;
+    }
+
+    @keyframes numberGlow {
+      0%, 100% { text-shadow: 0 0 0 rgba(34, 211, 238, 0); }
+      50% { text-shadow: 0 0 28px rgba(34, 211, 238, 0.32); }
+    }
+
+    .theme-glossary .fx-particle {
+      color: rgba(220, 229, 255, 0.78);
+      animation-name: fxFloatUp;
+    }
+
+    .theme-api .fx-particle {
+      color: rgba(20, 241, 149, 0.86);
+      animation-name: fxCodeFall;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    .theme-api .code-window {
+      position: relative;
+    }
+
+    .theme-api .code-window::after {
+      content: "";
+      position: absolute;
+      inset: 46px 0 auto 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(20, 241, 149, 0.8), transparent);
+      animation: codeLineScan 4.4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes codeLineScan {
+      0%, 16% { transform: translateY(0); opacity: 0; }
+      28% { opacity: 1; }
+      78% { transform: translateY(250px); opacity: 1; }
+      100% { transform: translateY(250px); opacity: 0; }
+    }
+
+    .theme-cta .fx-particle {
+      color: rgba(167, 139, 250, 0.86);
+      animation-name: fxPulseNode;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+
+      .section-fx {
+        display: none;
+      }
+    }
 
 
     @media (max-width: 1050px) {
@@ -2915,7 +3266,8 @@
               class="btn btn-primary"
               href="https://web-production-387cf.up.railway.app"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
+              data-liqscan-link="true"
               data-es="Abrir LiqScan →"
               data-en="Open LiqScan →"
             >Abrir LiqScan →</a>
@@ -2929,7 +3281,14 @@
         </div>
       </article>
 
-      <article class="project-visual-card project-visual-card-full">
+      <a
+        class="project-visual-card project-visual-card-full project-visual-link"
+        href="https://web-production-387cf.up.railway.app"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-liqscan-link="true"
+        aria-label="Abrir LiqScan en una nueva pestaña"
+      >
         <div class="project-browser-bar" aria-hidden="true">
           <span></span>
           <span></span>
@@ -2953,7 +3312,7 @@
             data-en="Real LiqScan view with network metrics, liquidatable positions, at-risk positions, watchlist and wallet search. The screenshot is shown in full so the product is visually clear."
           >Vista real de LiqScan con métricas por red, posiciones liquidables, posiciones en riesgo, watchlist y búsqueda por wallet. La captura se muestra completa para que se entienda visualmente el producto construido.</p>
         </div>
-      </article>
+      </a>
     </section>
 
 
@@ -3354,6 +3713,14 @@ query CriticalPositions {
   </footer>
 
   <script>
+    const LIQSCAN_URL = "https://web-production-387cf.up.railway.app";
+
+    document.querySelectorAll("[data-liqscan-link]").forEach((link) => {
+      link.addEventListener("click", () => {
+        link.setAttribute("href", LIQSCAN_URL);
+      });
+    });
+
     const revealElements = document.querySelectorAll(".reveal");
 
     const revealObserver = new IntersectionObserver((entries) => {
