@@ -1028,8 +1028,8 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: 0.92fr 1.08fr;
-      gap: 22px;
+      grid-template-columns: 0.78fr 1.42fr;
+      gap: 28px;
       align-items: stretch;
     }
 
@@ -1074,53 +1074,79 @@
 
     .project-visual-stack {
       display: grid;
-      gap: 16px;
+      gap: 18px;
+      min-width: 0;
     }
 
-    .project-screenshot-card {
-      padding: 0;
-      overflow: hidden;
-      border-radius: 30px;
-      background: rgba(2, 5, 18, 0.82);
-    }
-
-    .project-screenshot-frame {
+    .project-visual-card {
       position: relative;
+      width: 100%;
+      min-height: 610px;
+      border-radius: 34px;
+      padding: 18px;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(139, 92, 246, 0.22), transparent 36%),
+        radial-gradient(circle at 100% 100%, rgba(34, 211, 238, 0.14), transparent 36%),
+        rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
       overflow: hidden;
-      border-radius: 24px;
-      margin: 18px;
-      background: rgba(2, 5, 18, 0.92);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
     }
 
-    .project-screenshot-frame::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(180deg, transparent 58%, rgba(2, 5, 18, 0.22));
+    .project-browser-bar {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 14px;
+      margin-bottom: 14px;
+      border-radius: 18px;
+      background: rgba(2, 5, 18, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.09);
     }
 
-    .project-screenshot-frame img {
+    .project-browser-bar span {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.32);
+    }
+
+    .project-browser-bar span:nth-child(1) { background: #ff5f57; }
+    .project-browser-bar span:nth-child(2) { background: #ffbd2e; }
+    .project-browser-bar span:nth-child(3) { background: #28c840; }
+
+    .project-browser-bar p {
+      margin-left: 10px;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .project-screenshot {
       display: block;
       width: 100%;
-      height: auto;
-      transform: scale(1.01);
-      transition: transform 0.5s ease, filter 0.5s ease;
+      height: 520px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 26px 80px rgba(0, 0, 0, 0.42);
+      transform: scale(1.02);
+      transition: transform 0.35s ease, filter 0.35s ease;
     }
 
-    .project-screenshot-card:hover img {
-      transform: scale(1.045);
-      filter: saturate(1.12) contrast(1.04);
+    .project-visual-card:hover .project-screenshot {
+      transform: scale(1.055);
+      filter: brightness(1.08) saturate(1.08);
     }
 
     .project-screenshot-caption {
-      padding: 0 22px 22px;
+      padding: 20px 6px 2px;
     }
 
     .project-screenshot-caption h4 {
-      font-size: 1rem;
+      font-size: 1.05rem;
       letter-spacing: -0.03em;
       margin-bottom: 8px;
     }
@@ -1128,7 +1154,32 @@
     .project-screenshot-caption p {
       color: var(--text-muted);
       line-height: 1.55;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
+    }
+
+    .project-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .project-mini-card {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.052);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .project-mini-card strong {
+      display: block;
+      margin-bottom: 7px;
+      letter-spacing: -0.03em;
+    }
+
+    .project-mini-card p {
+      color: var(--text-muted);
+      line-height: 1.55;
+      font-size: 0.88rem;
     }
 
     .project-process-grid {
@@ -1429,6 +1480,25 @@
       .api-card,
       .liqscan-layout,
       .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-visual-card {
+        min-height: auto;
+      }
+
+      .project-screenshot {
+        height: auto;
+        max-height: none;
+        object-fit: contain;
+        transform: none;
+      }
+
+      .project-visual-card:hover .project-screenshot {
+        transform: none;
+      }
+
+      .project-mini-grid {
         grid-template-columns: 1fr;
       }
 
@@ -2330,31 +2400,55 @@
         </article>
 
         <div class="project-visual-stack">
-          <article class="card project-screenshot-card">
-            <div class="project-screenshot-frame">
-              <img src="assets/liqscan-dashboard.png" alt="Captura del dashboard principal de LiqScan" loading="lazy">
+          <article class="project-visual-card">
+            <div class="project-browser-bar" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <p>LiqScan · Live dashboard</p>
             </div>
+
+            <img
+              class="project-screenshot"
+              src="liqscan-at-risk.png"
+              alt="Captura grande del dashboard LiqScan"
+              loading="lazy"
+            >
+
             <div class="project-screenshot-caption">
-              <h4 data-es="Dashboard principal" data-en="Main dashboard">Dashboard principal</h4>
+              <h4 data-es="Dashboard operativo" data-en="Operational dashboard">Dashboard operativo</h4>
               <p
-                data-es="Vista general con métricas de liquidaciones, posiciones en riesgo, watchlist y redes monitorizadas."
-                data-en="Overview with liquidation metrics, at-risk positions, watchlist and monitored chains."
-              >Vista general con métricas de liquidaciones, posiciones en riesgo, watchlist y redes monitorizadas.</p>
+                data-es="La captura muestra la interfaz real de LiqScan: métricas por red, posiciones liquidables, posiciones en riesgo, watchlist y búsqueda por wallet. La imagen se presenta como mockup de producto para que se entienda visualmente qué se ha construido."
+                data-en="The screenshot shows the real LiqScan interface: network metrics, liquidatable positions, at-risk positions, watchlist and wallet search. The image is presented as a product mockup so the project is visually clear."
+              >La captura muestra la interfaz real de LiqScan: métricas por red, posiciones liquidables, posiciones en riesgo, watchlist y búsqueda por wallet. La imagen se presenta como mockup de producto para que se entienda visualmente qué se ha construido.</p>
             </div>
           </article>
 
-          <article class="card project-screenshot-card">
-            <div class="project-screenshot-frame">
-              <img src="assets/liqscan-at-risk.png" alt="Captura de la tabla Positions at Risk de LiqScan" loading="lazy">
-            </div>
-            <div class="project-screenshot-caption">
-              <h4 data-es="Tabla de posiciones en riesgo" data-en="At-risk positions table">Tabla de posiciones en riesgo</h4>
+          <div class="project-mini-grid">
+            <div class="project-mini-card">
+              <strong data-es="Datos candidatos" data-en="Candidate data">Datos candidatos</strong>
               <p
-                data-es="Las posiciones se ordenan por Health Factor y muestran colateral, deuda, gas, repago máximo y beneficio estimado."
-                data-en="Positions are sorted by Health Factor and display collateral, debt, gas, maximum repay and estimated profit."
-              >Las posiciones se ordenan por Health Factor y muestran colateral, deuda, gas, repago máximo y beneficio estimado.</p>
+                data-es="The Graph ayuda a encontrar wallets que podrían estar cerca de liquidación."
+                data-en="The Graph helps discover wallets that may be close to liquidation."
+              >The Graph ayuda a encontrar wallets que podrían estar cerca de liquidación.</p>
             </div>
-          </article>
+
+            <div class="project-mini-card">
+              <strong data-es="Verificación real" data-en="Real verification">Verificación real</strong>
+              <p
+                data-es="El backend consulta Aave on-chain para confirmar deuda y Health Factor reales."
+                data-en="The backend queries Aave on-chain to confirm real debt and Health Factor."
+              >El backend consulta Aave on-chain para confirmar deuda y Health Factor reales.</p>
+            </div>
+
+            <div class="project-mini-card">
+              <strong data-es="Señales limpias" data-en="Clean signals">Señales limpias</strong>
+              <p
+                data-es="Descarta falsos positivos y muestra solo posiciones confirmadas por contrato."
+                data-en="It discards false positives and displays only contract-confirmed positions."
+              >Descarta falsos positivos y muestra solo posiciones confirmadas por contrato.</p>
+            </div>
+          </div>
         </div>
       </div>
 
