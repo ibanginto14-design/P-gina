@@ -916,6 +916,114 @@
       margin-bottom: 22px;
     }
 
+
+    .liqscan-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .liqscan-intro {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .liqscan-intro h3 {
+      font-size: clamp(2rem, 4vw, 3.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.08em;
+      margin-bottom: 20px;
+    }
+
+    .liqscan-intro p {
+      color: var(--text-muted);
+      line-height: 1.75;
+      font-size: 1rem;
+      margin-bottom: 18px;
+    }
+
+    .liqscan-panel {
+      display: grid;
+      gap: 16px;
+    }
+
+    .liqscan-terminal {
+      border-radius: 28px;
+      overflow: hidden;
+      background: rgba(2, 5, 18, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .liqscan-terminal-body {
+      padding: 22px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .terminal-row {
+      display: grid;
+      grid-template-columns: 120px 1fr 90px;
+      gap: 14px;
+      align-items: center;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .terminal-row strong {
+      font-size: 0.9rem;
+      letter-spacing: -0.02em;
+    }
+
+    .terminal-row span {
+      color: var(--text-muted);
+      font-size: 0.83rem;
+      font-weight: 700;
+    }
+
+    .terminal-status {
+      justify-self: end;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(20, 241, 149, 0.1);
+      border: 1px solid rgba(20, 241, 149, 0.24);
+      color: var(--accent-3) !important;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.7rem !important;
+      font-weight: 900 !important;
+    }
+
+    .liqscan-pill-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .liqscan-pill {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.052);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .liqscan-pill strong {
+      display: block;
+      margin-bottom: 7px;
+      letter-spacing: -0.03em;
+    }
+
+    .liqscan-pill p {
+      color: var(--text-muted);
+      line-height: 1.55;
+      font-size: 0.9rem;
+    }
+
     .risk-layout {
       display: grid;
       grid-template-columns: 1fr 0.9fr;
@@ -1185,7 +1293,8 @@
       .flow-arrow { display: none; }
 
       .risk-layout,
-      .api-card {
+      .api-card,
+      .liqscan-layout {
         grid-template-columns: 1fr;
       }
 
@@ -1259,8 +1368,17 @@
       .flow-grid,
       .audience-grid,
       .glossary-grid,
-      .numbers-grid {
+      .numbers-grid,
+      .liqscan-pill-grid {
         grid-template-columns: 1fr;
+      }
+
+      .terminal-row {
+        grid-template-columns: 1fr;
+      }
+
+      .terminal-status {
+        justify-self: start;
       }
 
       .explanation-item {
@@ -1317,6 +1435,7 @@
         <a href="#how" data-es="Cómo funciona" data-en="How it works">Cómo funciona</a>
         <a href="#subgraphs" data-es="Subgraphs" data-en="Subgraphs">Subgraphs</a>
         <a href="#features" data-es="Funciones" data-en="Features">Funciones</a>
+        <a href="#liqscan" data-es="LiqScan" data-en="LiqScan">LiqScan</a>
         <a href="#risk" data-es="Riesgo" data-en="Risk Levels">Riesgo</a>
         <a href="#glossary" data-es="Glosario" data-en="Glossary">Glosario</a>
       </nav>
@@ -1999,6 +2118,130 @@
             <span class="tag">On-chain Data</span>
           </div>
         </article>
+      </div>
+    </section>
+
+
+    <section id="liqscan" class="container reveal">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker" data-es="Proyecto aplicado" data-en="Applied project">Proyecto aplicado</p>
+          <h2
+            class="section-title"
+            data-es="LiqScan: el escáner operativo de liquidaciones."
+            data-en="LiqScan: the operational liquidation scanner."
+          >LiqScan: el escáner operativo de liquidaciones.</h2>
+        </div>
+        <p
+          class="section-description"
+          data-es="LiqScan convierte la inteligencia de riesgo en una herramienta práctica: encuentra posiciones candidatas, las verifica contra Aave y muestra solo señales útiles para monitorizar."
+          data-en="LiqScan turns risk intelligence into a practical tool: it finds candidate positions, verifies them against Aave and displays only useful monitoring signals."
+        >LiqScan convierte la inteligencia de riesgo en una herramienta práctica: encuentra posiciones candidatas, las verifica contra Aave y muestra solo señales útiles para monitorizar.</p>
+      </div>
+
+      <div class="liqscan-layout">
+        <article class="card liqscan-intro">
+          <div>
+            <p class="section-kicker">LiqScan</p>
+            <h3
+              data-es="Del dato bruto a una oportunidad verificable."
+              data-en="From raw data to a verifiable opportunity."
+            >Del dato bruto a una oportunidad verificable.</h3>
+
+            <p
+              data-es="El proyecto LiqScan es un dashboard desplegado en Railway que monitoriza posiciones de préstamo en Aave V3. Su objetivo no es adivinar el mercado, sino reducir ruido: distinguir entre una posición realmente liquidable, una posición en riesgo y una señal que solo merece seguimiento."
+              data-en="LiqScan is a Railway-deployed dashboard that monitors Aave V3 lending positions. Its goal is not to predict the market, but to reduce noise: distinguishing between a truly liquidatable position, an at-risk position and a signal that only deserves monitoring."
+            >El proyecto LiqScan es un dashboard desplegado en Railway que monitoriza posiciones de préstamo en Aave V3. Su objetivo no es adivinar el mercado, sino reducir ruido: distinguir entre una posición realmente liquidable, una posición en riesgo y una señal que solo merece seguimiento.</p>
+
+            <p
+              data-es="Primero usa subgraphs para localizar posibles wallets candidatas. Después consulta directamente el contrato Pool de Aave con getUserAccountData(). Si la deuda real es cero o el health factor no confirma el riesgo, la posición se descarta."
+              data-en="First it uses subgraphs to locate possible candidate wallets. Then it queries the Aave Pool contract directly with getUserAccountData(). If real debt is zero or the health factor does not confirm the risk, the position is discarded."
+            >Primero usa subgraphs para localizar posibles wallets candidatas. Después consulta directamente el contrato Pool de Aave con getUserAccountData(). Si la deuda real es cero o el health factor no confirma el riesgo, la posición se descarta.</p>
+
+            <div class="warning-note"
+              data-es="LiqScan no ejecuta liquidaciones por sí solo ni sustituye una simulación de transacción. Sirve para detectar, verificar y priorizar señales antes de tomar cualquier decisión."
+              data-en="LiqScan does not execute liquidations by itself and does not replace transaction simulation. It is designed to detect, verify and prioritize signals before any decision is made."
+            >LiqScan no ejecuta liquidaciones por sí solo ni sustituye una simulación de transacción. Sirve para detectar, verificar y priorizar señales antes de tomar cualquier decisión.</div>
+          </div>
+
+          <div class="hero-buttons" style="margin-top: 28px;">
+            <a
+              class="btn btn-primary"
+              href="https://web-production-387cf.up.railway.app"
+              target="_blank"
+              rel="noopener"
+              data-es="Abrir LiqScan →"
+              data-en="Open LiqScan →"
+            >Abrir LiqScan →</a>
+            <a
+              class="btn btn-secondary"
+              href="#api"
+              data-es="Ver API"
+              data-en="View API"
+            >Ver API</a>
+          </div>
+        </article>
+
+        <div class="liqscan-panel">
+          <div class="liqscan-terminal">
+            <div class="code-header">
+              <div class="window-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <span>LiqScan · verified pipeline</span>
+            </div>
+
+            <div class="liqscan-terminal-body">
+              <div class="terminal-row">
+                <strong data-es="1. Detectar" data-en="1. Detect">1. Detectar</strong>
+                <span data-es="Subgraphs encuentran posiciones candidatas en varias redes." data-en="Subgraphs find candidate positions across multiple chains.">Subgraphs encuentran posiciones candidatas en varias redes.</span>
+                <span class="terminal-status">GraphQL</span>
+              </div>
+
+              <div class="terminal-row">
+                <strong data-es="2. Verificar" data-en="2. Verify">2. Verificar</strong>
+                <span data-es="Aave Pool confirma deuda, colateral y health factor reales." data-en="Aave Pool confirms real debt, collateral and health factor.">Aave Pool confirma deuda, colateral y health factor reales.</span>
+                <span class="terminal-status">On-chain</span>
+              </div>
+
+              <div class="terminal-row">
+                <strong data-es="3. Clasificar" data-en="3. Classify">3. Clasificar</strong>
+                <span data-es="Divide posiciones en Liquidatable, At Risk y Watchlist." data-en="Splits positions into Liquidatable, At Risk and Watchlist.">Divide posiciones en Liquidatable, At Risk y Watchlist.</span>
+                <span class="terminal-status">HF</span>
+              </div>
+
+              <div class="terminal-row">
+                <strong data-es="4. Mostrar" data-en="4. Display">4. Mostrar</strong>
+                <span data-es="La web responde desde caché para cargar rápido y refresca en segundo plano." data-en="The app responds from cache for fast loading and refreshes in the background.">La web responde desde caché para cargar rápido y refresca en segundo plano.</span>
+                <span class="terminal-status">Live</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="liqscan-pill-grid">
+            <div class="liqscan-pill">
+              <strong data-es="5 redes EVM" data-en="5 EVM chains">5 redes EVM</strong>
+              <p data-es="Ethereum, Arbitrum, Base, Polygon y Optimism monitorizadas desde un mismo backend." data-en="Ethereum, Arbitrum, Base, Polygon and Optimism monitored from one backend.">Ethereum, Arbitrum, Base, Polygon y Optimism monitorizadas desde un mismo backend.</p>
+            </div>
+
+            <div class="liqscan-pill">
+              <strong data-es="Verificación real" data-en="Real verification">Verificación real</strong>
+              <p data-es="Evita falsos positivos descartando posiciones sin deuda on-chain." data-en="Avoids false positives by discarding positions with no on-chain debt.">Evita falsos positivos descartando posiciones sin deuda on-chain.</p>
+            </div>
+
+            <div class="liqscan-pill">
+              <strong data-es="Decimales precisos" data-en="Precise decimals">Decimales precisos</strong>
+              <p data-es="Muestra posiciones pequeñas con decimales en lugar de redondearlas a cero." data-en="Displays small positions with decimals instead of rounding them to zero.">Muestra posiciones pequeñas con decimales en lugar de redondearlas a cero.</p>
+            </div>
+
+            <div class="liqscan-pill">
+              <strong data-es="API propia" data-en="Own API">API propia</strong>
+              <p data-es="Expone endpoints para oportunidades, estadísticas, salud del servicio y búsqueda por wallet." data-en="Exposes endpoints for opportunities, stats, service health and wallet lookup.">Expone endpoints para oportunidades, estadísticas, salud del servicio y búsqueda por wallet.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
